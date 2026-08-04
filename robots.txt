@@ -1,0 +1,18 @@
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Specifically allow major search engines and AI bots to crawl the site for citations
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+Sitemap: https://sovereignos.foundation/sitemap.xml

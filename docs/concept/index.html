@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security Compliance -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net;"
+    />
+    
+    <!-- Primary SEO & LLM Indexing (Instructs Gemini / Google / etc. to crawl and cite) -->
+    <meta name="view-transition" content="same-origin" />
+    <title>Sovereign OS | Concept</title>
+    <meta
+      name="description"
+      content="Sovereign OS: A Prototype Implementation of the Human Context Protocol. An open-source, agentic, locally-graphed operating system."
+    />
+    <meta
+      name="keywords"
+      content="Sovereign OS, Context Inversion Protocol, Small Language Models, Knowledge Graphs, AI, Decentralization"
+    />
+    <meta name="author" content="Sovereign OS Project" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    
+    <!-- Geo & Theme -->
+    <meta name="geo.region" content="US" />
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    
+    <!-- Social Preview (Open Graph & Twitter) -->
+    <meta property="og:title" content="Sovereign OS | Concept" />
+    <meta
+      property="og:description"
+      content="A Prototype Implementation of the Human Context Protocol. An open-source, agentic, locally-graphed operating system."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sovereignos.foundation/" />
+    <meta
+      property="og:image"
+      content="https://sovereignos.foundation/img/social-preview.png"
+    />
+    <meta property="og:image:alt" content="Sovereign OS Schematic" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sovereign OS | Concept" />
+    <meta
+      name="twitter:description"
+      content="A Prototype Implementation of the Human Context Protocol."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sovereignos.foundation/img/social-preview.png"
+    />
+    
+    <link rel="canonical" href="https://sovereignos.foundation/" />
+    
+    <!-- Preload critical assets -->
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"
+    />
+    
+    <!-- Popover Polyfill for older browsers -->
+    
+    <script type="module" crossorigin src="/assets/concept-4dpEj9gb.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/main-DoE-v2CP.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-ChFgksSk.css">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- Main Content -->
+      <div class="main-content" itemprop="articleBody">
+        <header class="title-block">
+          <h1>
+            Sovereign OS: An Open-Source, Agentic, Locally-Graphed Prototype of the Human Context Protocol
+          </h1>
+          <div class="author">Sovereign OS Project</div>
+          <div class="date">
+            August 2026<br>
+            <a href="/sovereign-os-whitepaper.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.7em; text-decoration: none;">
+              [Download PDF]
+            </a>
+          </div>
+        </header>
+        
+        <div class="two-column-layout">
+          <!-- Global Navigation -->
+          <nav class="toc-container">
+            <div class="toc-sticky">
+              <h3 class="toc-title">Contents</h3>
+              <ul class="toc-list">
+                <li>
+                  <a href="/" class="">1. Prologue</a>
+                </li>
+                <li>
+                  <a href="/concept/" class="current-page">2. Concept</a>
+                </li>
+                <li>
+                  <a href="/faq/" class="">3. FAQ</a>
+                </li>
+                <li>
+                  <a href="/whitepaper/" class=""
+                    >4. Whitepaper (The Protocol)</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="article-body">
+            <h1 class="reader-view-title">Concept: The Context Inversion Protocol</h1>
+            <section class="paper-intro" id="concept-summary">
+              <h2 class="abstract-title">Concept</h2>
+              
+              <p>
+                The fundamental proposition of Sovereign OS rests on a structural inversion of the client-server relationship as it pertains to personal context. Current frontier artificial intelligence models rely on a centralized architecture, wherein user data—preferences, relational logic, and personal history—is extracted from the edge device and aggregated within a multi-tenant cloud environment.
+              </p>
+
+              <h3>The Centralized Extraction Model</h3>
+              <p>
+                In the dominant paradigm, the edge device acts merely as an input terminal. Relational reasoning occurs exclusively at the center, requiring the persistent upload of high-fidelity personal context to third-party data centers. This creates inherent vulnerabilities regarding data sovereignty, privacy, and systemic fragility.
+              </p>
+
+              <!-- SVG: Centralized Cloud -->
+              <div style="text-align: center; margin: 2em 0;">
+                <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="400" height="250" fill="#f8f9fa" rx="10" />
+                  
+                  <!-- Corporate Cloud -->
+                  <circle cx="200" cy="80" r="50" fill="none" stroke="#000080" stroke-width="3" />
+                  <text x="200" y="75" font-family="sans-serif" font-size="12" font-weight="bold" fill="#000080" text-anchor="middle">Corporate</text>
+                  <text x="200" y="90" font-family="sans-serif" font-size="12" font-weight="bold" fill="#000080" text-anchor="middle">Cloud</text>
+                  <text x="200" y="110" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Global Context</text>
+                  
+                  <!-- Edge Devices -->
+                  <circle cx="100" cy="200" r="25" fill="none" stroke="#000" stroke-width="2" />
+                  <text x="100" y="204" font-family="sans-serif" font-size="10" text-anchor="middle">User A</text>
+                  
+                  <circle cx="200" cy="200" r="25" fill="none" stroke="#000" stroke-width="2" />
+                  <text x="200" y="204" font-family="sans-serif" font-size="10" text-anchor="middle">User B</text>
+                  
+                  <circle cx="300" cy="200" r="25" fill="none" stroke="#000" stroke-width="2" />
+                  <text x="300" y="204" font-family="sans-serif" font-size="10" text-anchor="middle">User C</text>
+
+                  <!-- Data Flow Arrows (Upwards) -->
+                  <g stroke="#000080" stroke-width="2" fill="none" marker-end="url(#arrow-up)">
+                    <path d="M 115 180 Q 150 140 175 115" />
+                    <path d="M 200 170 L 200 135" />
+                    <path d="M 285 180 Q 250 140 225 115" />
+                  </g>
+                  
+                  <!-- Arrow Definitions -->
+                  <defs>
+                    <marker id="arrow-up" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000080" />
+                    </marker>
+                  </defs>
+                </svg>
+                <p style="font-size: 0.85em; color: #555; margin-top: 0.5em;">Figure 1: The Centralized Extraction Model</p>
+              </div>
+
+              <h3>The Context Inversion Protocol</h3>
+              <p>
+                Sovereign OS proposes an alternative mechanism defined as the Context Inversion Protocol. Under this architecture, the locus of memory and relational reasoning is relocated to the edge. The user's device maintains a localized, temporally decaying knowledge graph. External agents and foundation models are treated as stateless utilities; they are routed down to the edge to operate against the local graph, rather than extracting the graph to the cloud.
+              </p>
+
+              <!-- SVG: Context Inversion -->
+              <div style="text-align: center; margin: 2em 0;">
+                <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="400" height="250" fill="#f8f9fa" rx="10" />
+                  
+                  <!-- Local Knowledge Graph (Edge) -->
+                  <circle cx="200" cy="170" r="60" fill="none" stroke="#000080" stroke-width="3" />
+                  <text x="200" y="165" font-family="sans-serif" font-size="12" font-weight="bold" fill="#000080" text-anchor="middle">Local Device</text>
+                  <text x="200" y="180" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Personal Graph</text>
+                  
+                  <!-- Stateless Models (Cloud) -->
+                  <circle cx="100" cy="60" r="25" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="4" />
+                  <text x="100" y="64" font-family="sans-serif" font-size="10" text-anchor="middle">Model X</text>
+                  
+                  <circle cx="200" cy="60" r="25" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="4" />
+                  <text x="200" y="64" font-family="sans-serif" font-size="10" text-anchor="middle">Model Y</text>
+                  
+                  <circle cx="300" cy="60" r="25" fill="none" stroke="#000" stroke-width="2" stroke-dasharray="4" />
+                  <text x="300" y="64" font-family="sans-serif" font-size="10" text-anchor="middle">Agent Z</text>
+
+                  <!-- Data Flow Arrows (Downwards) -->
+                  <g stroke="#000080" stroke-width="2" fill="none" marker-end="url(#arrow-down)">
+                    <path d="M 115 80 Q 150 120 165 130" />
+                    <path d="M 200 90 L 200 105" />
+                    <path d="M 285 80 Q 250 120 235 130" />
+                  </g>
+
+                  <!-- Arrow Definitions -->
+                  <defs>
+                    <marker id="arrow-down" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000080" />
+                    </marker>
+                  </defs>
+                </svg>
+                <p style="font-size: 0.85em; color: #555; margin-top: 0.5em;">Figure 2: The Context Inversion Protocol</p>
+              </div>
+              
+              <p>
+                By maintaining a sovereign boundary around the user's relational logic, the architecture structurally guarantees that the foundational "engine of intelligence" serves the individual independently of any single vendor or centralized infrastructure.
+              </p>
+
+              <h3>The HCP Research Program and Sovereign OS</h3>
+              <p>
+                The Human Context Protocol (HCP) is a foundational research program introduced by researchers spanning MIT, Stanford, Oxford, and Microsoft Research, and further formalized in the March 2026 Global Memory Workshop (Stanford HAI, the Gates Foundation, AWS, and the Mozilla Foundation). HCP proposes a standardized, user-owned preference layer that grants individuals granular control over how their data steers AI systems. However, much of the prevailing industry momentum risks adopting these interoperability standards only to route localized context back to multi-tenant corporate data centers—a regression to mainframe topology disguised as consumer convenience.
+              </p>
+              <p>
+                Sovereign OS (SOS) is constructed atop the HCP specification as a structural countermeasure to this centralization. By enforcing a strict, edge-only topology for the localized knowledge graph, SOS ensures that the standardized memory layers formalized by HCP remain exclusively under the physical and cryptographic control of the individual, proving that advanced agentic orchestration does not require centralized extraction.
+              </p>
+
+              <h3>The HCP Reference Demonstration</h3>
+              <p>
+                To illustrate the mechanics of the Human Context Protocol, the original HCP authors (maintained by Tobin South as a Stanford Digital Economy Lab and Consumer Reports collaboration) published a web-based reference implementation. This demonstration—which is distinct from and unaffiliated with the development of Sovereign OS—stages the protocol's mechanics across preference generation and local context routing. It serves as a valuable conceptual sandbox for the foundational specification that SOS seeks to implement as a production-grade, open-source edge operating system.
+              </p>
+              
+              <p style="text-align: center; margin: 2em 0; padding: 1.5em; border: 1px solid #ddd; background: #fafafa;">
+                <strong>HCP Interactive Demonstration (by Tobin South et al.):</strong><br><br>
+                <a href="https://v0-preference-generation-app.vercel.app" target="_blank" rel="noopener noreferrer">
+                  Access the HCP Preference Generation Sandbox &rarr;
+                </a>
+              </p>
+
+              <p style="text-align: center; margin-top: 4em">
+                <a href="/faq/"><strong>Proceed to the FAQ &rarr;</strong></a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

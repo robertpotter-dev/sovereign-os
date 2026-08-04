@@ -1,0 +1,1 @@
+import{t as e}from"./main-DoE-v2CP.js";`popover`in HTMLElement.prototype||e(()=>import(`https://unpkg.com/@oddbird/popover-polyfill@latest/dist/popover.min.js`),[]);
