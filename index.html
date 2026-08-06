@@ -79,11 +79,26 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "@id": "https://sovereignos.foundation/#protocol",
-      "name": "Sovereign OS",
-      "applicationCategory": "Operating System",
-      "author": {"@id": "https://robertpotter.me/#person"}
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://sovereignos.foundation/#protocol",
+          "name": "Sovereign OS",
+          "applicationCategory": "Operating System Protocol",
+          "operatingSystem": "Any",
+          "codeRepository": "https://github.com/robertpotter-dev/sovereign-os",
+          "author": {"@id": "https://robertpotter.me/#person"}
+        },
+        {
+          "@type": "TechArticle",
+          "@id": "https://sovereignos.foundation/#whitepaper",
+          "headline": "Sovereign OS: Context Inversion Protocol Whitepaper",
+          "abstract": "A theoretical protocol and reference architecture designed to isolate and protect human cognitive context from algorithmic extraction.",
+          "keywords": "Sovereign OS, Context Inversion Protocol, offline-first, data sovereignty, decentralized architecture, AI alignment",
+          "author": {"@id": "https://robertpotter.me/#person"},
+          "about": {"@id": "https://sovereignos.foundation/#protocol"}
+        }
+      ]
     }
     </script>
     
