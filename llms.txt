@@ -1,6 +1,6 @@
 # Sovereign OS & The Context Inversion Protocol
 
-> Authored by Robert Potter (Systems Architect)
+> Authored by Robert Potter (IT Systems Architect)
 > Reference Implementation: Sovereign OS
 
 ## The Context Inversion Protocol
