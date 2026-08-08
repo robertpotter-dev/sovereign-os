@@ -12,16 +12,16 @@
     
     <!-- Primary SEO & LLM Indexing (Instructs Gemini / Google / etc. to crawl and cite) -->
     <meta name="view-transition" content="same-origin" />
-    <title>Sovereign OS | FAQ</title>
+    <title>FAQ | Sovereign OS Project</title>
     <meta
       name="description"
-      content="Sovereign OS: A Prototype Implementation of the Human Context Protocol. An open-source, agentic, locally-graphed operating system."
+      content="The Sovereign OS Project is an independent research initiative publishing Robert Potter's Context Inversion Protocol and developing its proposed reference implementation."
     />
     <meta
       name="keywords"
-      content="Sovereign OS, Context Inversion Protocol, Small Language Models, Knowledge Graphs, AI, Decentralization"
+      content="Sovereign OS Project, Context Inversion Protocol, Human Context Protocol, local memory graph, agentic delegation, independent research"
     />
-    <meta name="author" content="Sovereign OS Project" />
+    <meta name="author" content="Robert E. Potter" />
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
@@ -38,31 +38,25 @@
     <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
     
     <!-- Social Preview (Open Graph & Twitter) -->
-    <meta property="og:title" content="Sovereign OS | FAQ" />
+    <meta property="og:title" content="FAQ | Sovereign OS Project" />
     <meta
       property="og:description"
-      content="A Prototype Implementation of the Human Context Protocol. An open-source, agentic, locally-graphed operating system."
+      content="An independent research initiative publishing the Context Inversion Protocol and developing its proposed Sovereign OS reference implementation."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sovereignos.foundation/" />
-    <meta
-      property="og:image"
-      content="https://sovereignos.foundation/img/social-preview.png"
-    />
+    <meta property="og:url" content="https://sovereignos.foundation/faq/" />
+    <meta property="og:image" content="https://sovereignos.foundation/img/social-preview.png" />
     <meta property="og:image:alt" content="Sovereign OS Schematic" />
     
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sovereign OS | FAQ" />
+    <meta name="twitter:title" content="FAQ | Sovereign OS Project" />
     <meta
       name="twitter:description"
-      content="A Prototype Implementation of the Human Context Protocol."
+      content="The Context Inversion Protocol and its proposed Sovereign OS reference implementation."
     />
-    <meta
-      name="twitter:image"
-      content="https://sovereignos.foundation/img/social-preview.png"
-    />
+    <meta name="twitter:image" content="https://sovereignos.foundation/img/social-preview.png" />
     
-    <link rel="canonical" href="https://sovereignos.foundation/" />
+    <link rel="canonical" href="https://sovereignos.foundation/faq/" />
     
     <!-- Preload critical assets -->
     <link
@@ -77,29 +71,50 @@
     
     <!-- AI & Knowledge Graph Indexing (JSON-LD) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "SoftwareApplication",
-          "@id": "https://sovereignos.foundation/#protocol",
-          "name": "Sovereign OS",
-          "applicationCategory": "Operating System Protocol",
-          "operatingSystem": "Any",
-          "codeRepository": "https://github.com/robertpotter-dev/sovereign-os",
-          "author": {"@id": "https://robertpotter.me/#person"}
-        },
-        {
-          "@type": "TechArticle",
-          "@id": "https://sovereignos.foundation/#whitepaper",
-          "headline": "Sovereign OS: Context Inversion Protocol Whitepaper",
-          "abstract": "A theoretical protocol and reference architecture designed to isolate and protect human cognitive context from algorithmic extraction.",
-          "keywords": "Sovereign OS, Context Inversion Protocol, offline-first, data sovereignty, decentralized architecture, AI alignment",
-          "author": {"@id": "https://robertpotter.me/#person"},
-          "about": {"@id": "https://sovereignos.foundation/#protocol"}
-        }
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ResearchProject",
+            "@id": "https://sovereignos.foundation/#initiative",
+            "name": "Sovereign OS Project",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol and developing its proposed Sovereign OS reference implementation.",
+            "disambiguatingDescription": "An independent personal-context research initiative founded by Robert Potter; unaffiliated with similarly named enterprise and national AI infrastructure products.",
+            "founder": { "@id": "https://robertpotter.me/#person" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#context-inversion-protocol",
+            "name": "Context Inversion Protocol",
+            "url": "https://sovereignos.foundation/concept/",
+            "description": "An edge-first implementation profile that keeps the user's local machine authoritative over persistent human context while treating external models and agents as replaceable utilities.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://sovereignos.foundation/#sovereign-os",
+            "name": "Sovereign OS",
+            "applicationCategory": "Reference Implementation",
+            "creativeWorkStatus": "Proposed — no public implementation release",
+            "description": "Proposed open-source, agentic, locally-graphed reference implementation of the Context Inversion Protocol; no public implementation has been released.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" },
+            "about": { "@id": "https://sovereignos.foundation/#context-inversion-protocol" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sovereignos.foundation/faq/#page",
+            "url": "https://sovereignos.foundation/faq/",
+            "name": "FAQ | Sovereign OS Project",
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" },
+            "about": [
+              { "@id": "https://sovereignos.foundation/#context-inversion-protocol" },
+              { "@id": "https://sovereignos.foundation/#sovereign-os" }
+            ]
+          }    ]
+      }
     </script>
     
     <!-- Popover Polyfill for older browsers -->
@@ -114,17 +129,24 @@
       <div class="main-content" itemprop="articleBody">
         <header class="title-block">
           <h1>
-            Sovereign OS: An Open-Source, Agentic, Locally-Graphed Prototype of the Human Context Protocol
+            The Context Inversion Protocol: A Proposal for Sovereign OS as an Open-Source, Agentic,
+            Locally-Graphed Reference Implementation of the Human Context Protocol
           </h1>
-          <div class="author">Sovereign OS Project</div>
+          <div class="author">Robert E. Potter</div>
           <div class="date">
-            July 2026<br>
-            <a href="/sovereign-os-whitepaper.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.7em; text-decoration: none;">
+            Sovereign OS Project &mdash; Independent Research Initiative<br />
+            Version 0.1.0 &middot; August 2026<br />
+            <a
+              href="/sovereign-os-whitepaper.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="font-size: 0.7em; text-decoration: none"
+            >
               [Download PDF]
             </a>
           </div>
         </header>
-        
+
         <div class="two-column-layout">
           <!-- Global Navigation -->
           <nav class="toc-container">
@@ -152,32 +174,88 @@
           <div class="article-body">
             <h1 class="reader-view-title">Frequently Asked Questions</h1>
             <section class="paper-intro" id="faq-summary">
-              
-              <div style="margin-bottom: 2.5em;">
-                <h3>How does Sovereign OS differ from edge AI initiatives by major hardware vendors?</h3>
+              <div style="margin-bottom: 2.5em">
+                <h3>
+                  What is the relationship between the project, the protocol, and the
+                  implementation?
+                </h3>
                 <p>
-                  Sovereign OS shares the architectural premise that personal context should be processed on the edge. Hardware-first vendors are economically incentivized to protect on-device data because their primary revenue is derived from hardware sales, allowing them to implement edge-centric AI within proprietary ecosystems. Sovereign OS provides an open-source, hardware-agnostic counterpart to this philosophy, ensuring that cryptographic data sovereignty is available as an auditable standard outside of closed ecosystems.
+                  The Sovereign OS Project is an independent research initiative founded by Robert
+                  Potter and published at sovereignos.foundation. The Context Inversion Protocol is
+                  the edge-first implementation profile authored by Potter. Sovereign OS is the
+                  project's proposed open-source reference implementation of that protocol. The
+                  <code>.foundation</code> domain is the project's canonical web address. The
+                  project's current public identity is an independent research initiative; the
+                  top-level domain is not a statement about its legal form or nonprofit status.
                 </p>
               </div>
 
-              <div style="margin-bottom: 2.5em;">
+              <div style="margin-bottom: 2.5em">
+                <h3>Is Sovereign OS a conventional operating system?</h3>
+                <p>
+                  No. Sovereign OS is the name of a proposed reference implementation for personal
+                  AI context infrastructure. It is not a released desktop or mobile operating
+                  system, Linux distribution, installable product, or replacement for Windows,
+                  macOS, or Linux.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>Is this project related to Palantir or similarly named products?</h3>
+                <p>
+                  No. The Sovereign OS Project published here is unaffiliated with Palantir or other
+                  similarly named products. This project focuses on individual control of persistent
+                  human context through a local, consent-scoped memory architecture and proposed
+                  reference implementation.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>
+                  How does Sovereign OS differ from edge AI initiatives by major hardware vendors?
+                </h3>
+                <p>
+                  Sovereign OS shares the architectural premise that personal context should be
+                  processed on the edge. Hardware-first vendors are economically incentivized to
+                  protect on-device data because their primary revenue is derived from hardware
+                  sales, allowing them to implement edge-centric AI within proprietary ecosystems.
+                  Sovereign OS is proposed as an open-source, hardware-agnostic counterpart to this
+                  philosophy, intended to make its data-sovereignty controls inspectable outside of
+                  closed ecosystems.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
                 <h3>Why not utilize centralized cloud models for personal AI?</h3>
                 <p>
-                  Centralized models require the continuous extraction of high-fidelity personal context to third-party data centers. Organizations whose valuations depend on data aggregation and algorithmic advertising are structurally incentivized to maintain this extraction model. Sovereign OS mitigates the risks associated with this topology by enforcing a strict edge boundary, ensuring the intelligence engine serves the individual rather than a centralized data repository.
+                  Centralized models require the continuous extraction of high-fidelity personal
+                  context to third-party data centers. Organizations whose valuations depend on data
+                  aggregation and algorithmic advertising are structurally incentivized to maintain
+                  this extraction model. The proposed Sovereign OS architecture is intended to
+                  mitigate those risks through an edge-first storage and authorization boundary,
+                  reducing dependence on a centralized data repository.
                 </p>
               </div>
 
-              <div style="margin-bottom: 2.5em;">
+              <div style="margin-bottom: 2.5em">
                 <h3>What are the hardware requirements for Sovereign OS?</h3>
                 <p>
-                  Maintaining a persistent, local memory graph that orchestrates multiple models is computationally intensive. Currently, a fully realized edge-only architecture sits just beyond the reach of standard consumer devices, requiring high-end hardware (e.g., 64GB+ unified memory) and heavily optimized foundational models. However, this hardware barrier is temporary; silicon continues to grow exponentially more power-efficient and cost-effective every year. Sovereign OS is built to be a universal, hardware-agnostic architecture. Whether deployed on advanced proprietary hardware like Apple Silicon or across open ecosystems like Linux and Windows, it establishes the structural standard today for a sovereign reality that is right around the corner.
+                  Maintaining a persistent, local memory graph that orchestrates multiple models is
+                  computationally intensive. A fully realized edge-only architecture may require
+                  high-end hardware and optimized local models, depending on workload. Sovereign OS
+                  is specified as a hardware-agnostic architecture intended to support proprietary
+                  hardware such as Apple Silicon as well as open Linux and Windows ecosystems.
                 </p>
               </div>
 
-              <div style="margin-bottom: 2.5em;">
+              <div style="margin-bottom: 2.5em">
                 <h3>How does Sovereign OS relate to the Human Context Protocol (HCP)?</h3>
                 <p>
-                  The Human Context Protocol (HCP) is an active research program and proposed specification for decentralized memory. Sovereign OS serves as a structural implementation of HCP principles, enforcing a strict edge-only topology for the localized knowledge graph generated by the protocol.
+                  The Human Context Protocol (HCP) is an active research program and proposed
+                  specification for user-controlled context. The Context Inversion Protocol is an
+                  implementation profile layered over HCP and MCP. Sovereign OS is proposed as a
+                  reference implementation of that profile, with a proposed edge-first topology for
+                  the localized knowledge graph. No public implementation has been released.
                 </p>
               </div>
 

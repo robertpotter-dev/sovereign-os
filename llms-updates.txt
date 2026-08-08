@@ -1,3 +1,10 @@
 # Recent Updates
 
-(Check back soon for the latest architectural updates, releases, and commits.)
+## 2026-08-08 — Entity and Authorship Clarification
+
+- Defined the Sovereign OS Project as an independent research initiative.
+- Identified Robert Potter as author of the Context Inversion Protocol.
+- Clarified Sovereign OS as the proposed open-source reference implementation of that protocol.
+- Added neutral disambiguation from similarly named enterprise AI products.
+- Added BibTeX metadata that cites the work as an independent research whitepaper rather than software.
+- Added a reproducible LaTeX whitepaper source and clarified that Sovereign OS is not a conventional operating system or released product.
