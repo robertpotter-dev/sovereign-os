@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security Compliance -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net;"
+    />
+    
+    <!-- Primary discovery metadata -->
+    <meta name="view-transition" content="same-origin" />
+    <title>Concept | Sovereign OS Project</title>
+    <meta name="description" content="CIP would keep the local machine authoritative over persistent human context. Sovereign OS 1.6.0 is the published custody plane; the CIP gate is not yet shipped." />
+    <meta name="author" content="Robert E. Potter" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
+    
+    <!-- Social Preview (Open Graph & Twitter) -->
+    <meta property="og:title" content="Concept | Sovereign OS Project" />
+    <meta property="og:site_name" content="Sovereign OS Project" />
+    <meta property="og:description" content="CIP would keep the local machine authoritative over persistent human context. Sovereign OS 1.6.0 is the published custody plane; the CIP gate is not yet shipped." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sovereignos.foundation/concept/" />
+    <meta property="og:image" content="https://sovereignos.foundation/img/social-preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Sovereign OS Project — Context Inversion Protocol schematic"
+    />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Concept | Sovereign OS Project" />
+    <meta name="twitter:description" content="CIP would keep the local machine authoritative over persistent human context. Sovereign OS 1.6.0 is the published custody plane; the CIP gate is not yet shipped." />
+    <meta name="twitter:image" content="https://sovereignos.foundation/img/social-preview.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Sovereign OS Project — Context Inversion Protocol schematic"
+    />
+    
+    <link rel="canonical" href="https://sovereignos.foundation/concept/" />
+    <link rel="describedby" type="text/markdown" href="https://sovereignos.foundation/llms.txt" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../fonts/fonts.css" as="style" />
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://robertpotter.me/#person",
+            "name": "Robert E. Potter",
+            "url": "https://robertpotter.me/",
+            "sameAs": "https://orcid.org/0009-0003-7903-558X"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sovereignos.foundation/#website",
+            "name": "Sovereign OS Project",
+            "alternateName": "Sovereign OS",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "creator": { "@id": "https://robertpotter.me/#person" },
+            "publisher": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "ResearchProject",
+            "@id": "https://sovereignos.foundation/#initiative",
+            "name": "Sovereign OS Project",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "disambiguatingDescription": "An independent personal-context research initiative founded by Robert Potter; unaffiliated with similarly named enterprise and national AI infrastructure products.",
+            "founder": { "@id": "https://robertpotter.me/#person" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#context-inversion-protocol",
+            "name": "Context Inversion Protocol",
+            "alternateName": "CIP",
+            "url": "https://sovereignos.foundation/concept/",
+            "creativeWorkStatus": "Proposed",
+            "description": "A proposed edge-first implementation profile that would keep the user's local machine authoritative over persistent human context while treating external models and agents as replaceable utilities. Not shipped.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#sovereign-os",
+            "name": "Sovereign OS",
+            "alternateName": "Sovereign OS Control Plane",
+            "url": "https://github.com/robertpotter-dev/sos-control-plane",
+            "creativeWorkStatus": "Published prototype — custody plane; CIP runtime not shipped",
+            "license": "https://opensource.org/license/mit",
+            "description": "Published MIT-licensed local control plane (version 1.6.0) for source custody, deterministic evidence, and operator-accepted knowledge. Not a completed Context Inversion Protocol or HCP-MCP stack.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" },
+            "about": { "@id": "https://sovereignos.foundation/#context-inversion-protocol" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sovereignos.foundation/concept/#page",
+            "url": "https://sovereignos.foundation/concept/",
+            "name": "Concept | Sovereign OS Project",
+            "description": "CIP would keep the local machine authoritative over persistent human context. Sovereign OS 1.6.0 is the published custody plane; the CIP gate is not yet shipped.",
+            "dateModified": "2026-08-28",
+            "isPartOf": { "@id": "https://sovereignos.foundation/#website" },
+            "about": [
+              { "@id": "https://sovereignos.foundation/#context-inversion-protocol" },
+              { "@id": "https://sovereignos.foundation/#sovereign-os" }
+            ]
+          }    ]
+      }
+    </script>
+    
+    <!-- Popover Polyfill for older browsers -->
+    
+    <script type="module" crossorigin src="../assets/concept-CImZLiWv.js"></script>
+    <link rel="modulepreload" crossorigin href="../assets/main-yi8v5-jb.js">
+    <link rel="stylesheet" crossorigin href="../assets/main-BGzXLoBc.css">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- Main Content -->
+      <div class="main-content" itemprop="articleBody">
+        <header class="title-block">
+          <div class="publication-title">
+            The Context Inversion Protocol: An Edge-First Profile for Persistent Human Context, with a Local
+            Custody and Provenance Prototype
+          </div>
+          <div class="author"><a href="https://robertpotter.me/" rel="author">Robert E. Potter</a></div>
+          <div class="date">
+            Sovereign OS Project &mdash; Independent Research Initiative<br />
+            Version 0.2.0 &middot; August 2026<br />
+            <a href="/sovereign-os-whitepaper.pdf" target="_blank" rel="noopener noreferrer">[Download PDF]</a>
+            <a href="/whitepaper-raw.md" target="_blank" rel="noopener noreferrer">[Markdown]</a>
+            <a href="/CITATION.bib" target="_blank" rel="noopener noreferrer">[BibTeX]</a>
+            <a href="https://doi.org/10.5281/zenodo.22313971" aria-label="DOI: 10.5281/zenodo.22313971">[DOI]</a>
+          </div>
+        </header>
+
+        <div class="two-column-layout">
+          <!-- Global Navigation -->
+          <nav class="toc-container">
+            <div class="toc-sticky">
+              <h3 class="toc-title">Contents</h3>
+              <ul class="toc-list">
+                <li>
+                  <a href="/" class="">1. Prologue</a>
+                </li>
+                <li>
+                  <a href="/concept/" class="current-page">2. Concept</a>
+                </li>
+                <li>
+                  <a href="/faq/" class="">3. FAQ</a>
+                </li>
+                <li>
+                  <a href="/whitepaper/" class=""
+                    >4. Whitepaper (The Protocol)</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="article-body">
+            <h1 class="reader-view-title">Concept: The Context Inversion Protocol</h1>
+            <section class="paper-intro" id="concept-summary">
+              <h2 class="abstract-title">Concept</h2>
+
+              <p>
+                The fundamental proposition of the Context Inversion Protocol is a structural
+                inversion of the client-server relationship as it pertains to personal context.
+                Current frontier artificial intelligence models rely on a centralized architecture,
+                wherein user data—preferences, relational logic, and personal history—is extracted
+                from the edge device and aggregated within a multi-tenant cloud environment.
+              </p>
+
+              <h3>The Centralized Extraction Model</h3>
+              <p>
+                In the dominant paradigm, the edge device acts merely as an input terminal.
+                Relational reasoning occurs exclusively at the center, requiring the persistent
+                upload of high-fidelity personal context to third-party data centers. This creates
+                inherent vulnerabilities regarding data sovereignty, privacy, and systemic
+                fragility.
+              </p>
+
+              <!-- SVG: Centralized Cloud -->
+              <div style="text-align: center; margin: 2em 0">
+                <svg
+                  width="400"
+                  height="250"
+                  viewBox="0 0 400 250"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="400" height="250" fill="#f8f9fa" rx="10" />
+
+                  <!-- Corporate Cloud -->
+                  <circle cx="200" cy="80" r="50" fill="none" stroke="#000080" stroke-width="3" />
+                  <text
+                    x="200"
+                    y="75"
+                    font-family="sans-serif"
+                    font-size="12"
+                    font-weight="bold"
+                    fill="#000080"
+                    text-anchor="middle"
+                  >
+                    Corporate
+                  </text>
+                  <text
+                    x="200"
+                    y="90"
+                    font-family="sans-serif"
+                    font-size="12"
+                    font-weight="bold"
+                    fill="#000080"
+                    text-anchor="middle"
+                  >
+                    Cloud
+                  </text>
+                  <text
+                    x="200"
+                    y="110"
+                    font-family="sans-serif"
+                    font-size="10"
+                    fill="#555"
+                    text-anchor="middle"
+                  >
+                    Global Context
+                  </text>
+
+                  <!-- Edge Devices -->
+                  <circle cx="100" cy="200" r="25" fill="none" stroke="#000" stroke-width="2" />
+                  <text
+                    x="100"
+                    y="204"
+                    font-family="sans-serif"
+                    font-size="10"
+                    text-anchor="middle"
+                  >
+                    User A
+                  </text>
+
+                  <circle cx="200" cy="200" r="25" fill="none" stroke="#000" stroke-width="2" />
+                  <text
+                    x="200"
+                    y="204"
+                    font-family="sans-serif"
+                    font-size="10"
+                    text-anchor="middle"
+                  >
+                    User B
+                  </text>
+
+                  <circle cx="300" cy="200" r="25" fill="none" stroke="#000" stroke-width="2" />
+                  <text
+                    x="300"
+                    y="204"
+                    font-family="sans-serif"
+                    font-size="10"
+                    text-anchor="middle"
+                  >
+                    User C
+                  </text>
+
+                  <!-- Data Flow Arrows (Upwards) -->
+                  <g stroke="#000080" stroke-width="2" fill="none" marker-end="url(#arrow-up)">
+                    <path d="M 115 180 Q 150 140 175 115" />
+                    <path d="M 200 170 L 200 135" />
+                    <path d="M 285 180 Q 250 140 225 115" />
+                  </g>
+
+                  <!-- Arrow Definitions -->
+                  <defs>
+                    <marker
+                      id="arrow-up"
+                      viewBox="0 0 10 10"
+                      refX="9"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto-start-reverse"
+                    >
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000080" />
+                    </marker>
+                  </defs>
+                </svg>
+                <p style="font-size: 0.85em; color: #555; margin-top: 0.5em">
+                  Figure 1: The Centralized Extraction Model
+                </p>
+              </div>
+
+              <h3>The Context Inversion Protocol</h3>
+              <p>
+                The Context Inversion Protocol (CIP), authored by Robert Potter and published by the
+                Sovereign OS Project, is a proposed edge-first implementation profile for
+                user-owned AI context. Under that architecture, the locus of memory and
+                authorization would remain at the edge. The user's device would keep an inspectable
+                local custody plane. External agents and foundation models would be treated as
+                stateless, replaceable utilities, routed to narrowly authorized context rather than
+                extracting the store to the cloud. CIP would later use Human Context Protocol
+                semantics and Model Context Protocol transport for scoped sharing; it would not
+                replace either protocol, and it is not yet shipped.
+              </p>
+
+              <!-- SVG: Context Inversion -->
+              <div style="text-align: center; margin: 2em 0">
+                <svg
+                  width="400"
+                  height="250"
+                  viewBox="0 0 400 250"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="400" height="250" fill="#f8f9fa" rx="10" />
+
+                  <!-- Local Knowledge Graph (Edge) -->
+                  <circle cx="200" cy="170" r="60" fill="none" stroke="#000080" stroke-width="3" />
+                  <text
+                    x="200"
+                    y="165"
+                    font-family="sans-serif"
+                    font-size="12"
+                    font-weight="bold"
+                    fill="#000080"
+                    text-anchor="middle"
+                  >
+                    Local Device
+                  </text>
+                  <text
+                    x="200"
+                    y="180"
+                    font-family="sans-serif"
+                    font-size="10"
+                    fill="#555"
+                    text-anchor="middle"
+                  >
+                    Custody Plane
+                  </text>
+
+                  <!-- Stateless Models (Cloud) -->
+                  <circle
+                    cx="100"
+                    cy="60"
+                    r="25"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                    stroke-dasharray="4"
+                  />
+                  <text x="100" y="64" font-family="sans-serif" font-size="10" text-anchor="middle">
+                    Model X
+                  </text>
+
+                  <circle
+                    cx="200"
+                    cy="60"
+                    r="25"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                    stroke-dasharray="4"
+                  />
+                  <text x="200" y="64" font-family="sans-serif" font-size="10" text-anchor="middle">
+                    Model Y
+                  </text>
+
+                  <circle
+                    cx="300"
+                    cy="60"
+                    r="25"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                    stroke-dasharray="4"
+                  />
+                  <text x="300" y="64" font-family="sans-serif" font-size="10" text-anchor="middle">
+                    Agent Z
+                  </text>
+
+                  <!-- Data Flow Arrows (Downwards) -->
+                  <g stroke="#000080" stroke-width="2" fill="none" marker-end="url(#arrow-down)">
+                    <path d="M 115 80 Q 150 120 165 130" />
+                    <path d="M 200 90 L 200 105" />
+                    <path d="M 285 80 Q 250 120 235 130" />
+                  </g>
+
+                  <!-- Arrow Definitions -->
+                  <defs>
+                    <marker
+                      id="arrow-down"
+                      viewBox="0 0 10 10"
+                      refX="9"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto"
+                    >
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000080" />
+                    </marker>
+                  </defs>
+                </svg>
+                <p style="font-size: 0.85em; color: #555; margin-top: 0.5em">
+                  Figure 2: The Context Inversion Protocol
+                </p>
+              </div>
+
+              <p>
+                By maintaining a sovereign boundary around the user's relational logic, the
+                architecture is designed to keep the foundational "engine of intelligence" serving
+                the individual independently of any single vendor or centralized infrastructure.
+              </p>
+
+              <h3>The published custody plane</h3>
+              <p>
+                Sovereign OS (SOS) Control Plane 1.6.0 is published under the MIT license as that
+                local store: captured sources, deterministic evidence, and operator-accepted
+                knowledge, kept as ordinary files. It implements a capture, ingest, debrief, and
+                retrieve loop. It is not CIP, not an HCP implementation, and it does not expose
+                MCP. CIP would add a mediated runtime in front of a plane like SOS so replaceable
+                models never mount the store. Those three objects remain distinct without HCP. HCP
+                is the protocol-family vocabulary for later scoped sharing; it is not required for
+                the custody plane to exist.
+              </p>
+              <p>
+                The software is available at
+                <a href="https://github.com/robertpotter-dev/sos-control-plane"
+                  >github.com/robertpotter-dev/sos-control-plane</a
+                >. Independent verification of behavior remains future work. The CIP gate is not
+                shipped.
+              </p>
+
+              <h3>The Human Context Protocol research program</h3>
+              <p>
+                The Human Context Protocol (HCP) is a research program introduced by researchers
+                spanning MIT, Stanford, Oxford, and Microsoft Research, and further formalized in
+                the March 2026 Global Memory Workshop (Stanford HAI, the Gates Foundation, AWS, and
+                the Mozilla Foundation). HCP proposes a standardized, user-owned preference layer
+                that grants individuals granular control over how their data steers AI systems.
+                Industry momentum around such interoperability still risks routing localized
+                context back to multi-tenant corporate data centers—a regression to mainframe
+                topology. CIP's proposed countermeasure is to keep the store local and to place a
+                gate in front of it. SOS is that store, not an instantiation of HCP at the edge.
+              </p>
+
+              <h3>The HCP reference demonstration</h3>
+              <p>
+                To illustrate HCP's own mechanics, the original HCP authors (maintained by Tobin
+                South as a Stanford Digital Economy Lab and Consumer Reports collaboration)
+                published a web-based demonstration. That demonstration is distinct from and
+                unaffiliated with the Sovereign OS Project. It stages preference generation and
+                context routing as a conceptual sandbox for HCP. It is not the SOS control plane,
+                and SOS is not designed as an HCP-MCP stack.
+              </p>
+
+              <p
+                style="
+                  text-align: center;
+                  margin: 2em 0;
+                  padding: 1.5em;
+                  border: 1px solid #ddd;
+                  background: #fafafa;
+                "
+              >
+                <strong>HCP Interactive Demonstration (by Tobin South et al.):</strong><br /><br />
+                <a
+                  href="https://v0-preference-generation-app.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Access the HCP Preference Generation Sandbox &rarr;
+                </a>
+              </p>
+
+              <p style="text-align: center; margin-top: 4em">
+                <a href="/faq/"><strong>Proceed to the FAQ &rarr;</strong></a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security Compliance -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net;"
+    />
+    
+    <!-- Primary discovery metadata -->
+    <meta name="view-transition" content="same-origin" />
+    <title>The Context Inversion Protocol | Sovereign OS Project</title>
+    <meta name="description" content="Robert Potter&#x27;s technical whitepaper (version 0.2.0) defines the Context Inversion Protocol and reports Sovereign OS Control Plane 1.6.0 as a published local custody and provenance prototype, not a completed CIP or HCP-MCP stack." />
+    <meta name="author" content="Robert E. Potter" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
+    
+    <!-- Social Preview (Open Graph & Twitter) -->
+    <meta property="og:title" content="The Context Inversion Protocol | Sovereign OS Project" />
+    <meta property="og:site_name" content="Sovereign OS Project" />
+    <meta property="og:description" content="Robert Potter&#x27;s technical whitepaper (version 0.2.0) defines the Context Inversion Protocol and reports Sovereign OS Control Plane 1.6.0 as a published local custody and provenance prototype, not a completed CIP or HCP-MCP stack." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sovereignos.foundation/whitepaper/" />
+    <meta property="og:image" content="https://sovereignos.foundation/img/social-preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Sovereign OS Project — Context Inversion Protocol schematic"
+    />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Context Inversion Protocol | Sovereign OS Project" />
+    <meta name="twitter:description" content="Robert Potter&#x27;s technical whitepaper (version 0.2.0) defines the Context Inversion Protocol and reports Sovereign OS Control Plane 1.6.0 as a published local custody and provenance prototype, not a completed CIP or HCP-MCP stack." />
+    <meta name="twitter:image" content="https://sovereignos.foundation/img/social-preview.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Sovereign OS Project — Context Inversion Protocol schematic"
+    />
+    
+    <link rel="canonical" href="https://sovereignos.foundation/whitepaper/" />
+    <link rel="describedby" type="text/markdown" href="https://sovereignos.foundation/llms.txt" />
+    <meta name="citation_doi" content="10.5281/zenodo.22313971" />
+    <meta name="DC.identifier" content="https://doi.org/10.5281/zenodo.22313971" />
+    <link
+      rel="alternate"
+      type="application/pdf"
+      href="https://sovereignos.foundation/sovereign-os-whitepaper.pdf"
+      title="Context Inversion Protocol whitepaper (PDF)"
+    />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="https://sovereignos.foundation/whitepaper-raw.md"
+      title="Context Inversion Protocol whitepaper (Markdown)"
+    />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../fonts/fonts.css" as="style" />
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://robertpotter.me/#person",
+            "name": "Robert E. Potter",
+            "url": "https://robertpotter.me/",
+            "sameAs": "https://orcid.org/0009-0003-7903-558X"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sovereignos.foundation/#website",
+            "name": "Sovereign OS Project",
+            "alternateName": "Sovereign OS",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "creator": { "@id": "https://robertpotter.me/#person" },
+            "publisher": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "ResearchProject",
+            "@id": "https://sovereignos.foundation/#initiative",
+            "name": "Sovereign OS Project",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "disambiguatingDescription": "An independent personal-context research initiative founded by Robert Potter; unaffiliated with similarly named enterprise and national AI infrastructure products.",
+            "founder": { "@id": "https://robertpotter.me/#person" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#context-inversion-protocol",
+            "name": "Context Inversion Protocol",
+            "alternateName": "CIP",
+            "url": "https://sovereignos.foundation/concept/",
+            "creativeWorkStatus": "Proposed",
+            "description": "A proposed edge-first implementation profile that would keep the user's local machine authoritative over persistent human context while treating external models and agents as replaceable utilities. Not shipped.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#sovereign-os",
+            "name": "Sovereign OS",
+            "alternateName": "Sovereign OS Control Plane",
+            "url": "https://github.com/robertpotter-dev/sos-control-plane",
+            "creativeWorkStatus": "Published prototype — custody plane; CIP runtime not shipped",
+            "license": "https://opensource.org/license/mit",
+            "description": "Published MIT-licensed local control plane (version 1.6.0) for source custody, deterministic evidence, and operator-accepted knowledge. Not a completed Context Inversion Protocol or HCP-MCP stack.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" },
+            "about": { "@id": "https://sovereignos.foundation/#context-inversion-protocol" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sovereignos.foundation/whitepaper/#page",
+            "url": "https://sovereignos.foundation/whitepaper/",
+            "name": "The Context Inversion Protocol | Sovereign OS Project",
+            "description": "Robert Potter's technical whitepaper (version 0.2.0) defines the Context Inversion Protocol and reports Sovereign OS Control Plane 1.6.0 as a published local custody and provenance prototype, not a completed CIP or HCP-MCP stack.",
+            "dateModified": "2026-08-28",
+            "isPartOf": { "@id": "https://sovereignos.foundation/#website" },
+            "about": [
+              { "@id": "https://sovereignos.foundation/#context-inversion-protocol" },
+              { "@id": "https://sovereignos.foundation/#sovereign-os" }
+            ]
+          },
+          {
+            "@type": "TechArticle",
+            "@id": "https://sovereignos.foundation/whitepaper/#article",
+            "url": "https://sovereignos.foundation/whitepaper/",
+            "headline": "The Context Inversion Protocol: An Edge-First Profile for Persistent Human Context, with a Local Custody and Provenance Prototype",
+            "abstract": "A technical paper defining the Context Inversion Protocol as an edge-first profile and reporting Sovereign OS Control Plane 1.6.0 as a published local custody and provenance prototype, not a completed CIP or HCP-MCP stack.",
+            "datePublished": "2026-08-08",
+            "dateModified": "2026-08-28",
+            "keywords": "Sovereign OS, Context Inversion Protocol, Human Context Protocol, local custody plane, provenance, agentic delegation",
+            "version": "Whitepaper 0.2.0",
+            "identifier": {
+              "@type": "PropertyValue",
+              "propertyID": "DOI",
+              "value": "10.5281/zenodo.22313971",
+              "url": "https://doi.org/10.5281/zenodo.22313971"
+            },
+            "sameAs": "https://doi.org/10.5281/zenodo.22313971",
+            "license": "https://creativecommons.org/licenses/by/4.0/",
+            "image": "https://sovereignos.foundation/img/social-preview.png",
+            "mainEntityOfPage": { "@id": "https://sovereignos.foundation/whitepaper/#page" },
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "publisher": { "@id": "https://sovereignos.foundation/#initiative" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" },
+            "about": [
+              { "@id": "https://sovereignos.foundation/#context-inversion-protocol" },
+              { "@id": "https://sovereignos.foundation/#sovereign-os" }
+            ]
+          }
+        ]
+      }
+    </script>
+    
+    <!-- Popover Polyfill for older browsers -->
+    
+    <!-- MathJax for LaTeX Equations -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+          displayMath: [
+            ['$$', '$$'],
+            ['\\[', '\\]'],
+          ],
+        },
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script type="module" crossorigin src="../assets/whitepaper-CImZLiWv.js"></script>
+    <link rel="modulepreload" crossorigin href="../assets/main-yi8v5-jb.js">
+    <link rel="stylesheet" crossorigin href="../assets/main-BGzXLoBc.css">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <div class="main-content" itemprop="articleBody">
+        <header class="title-block">
+          <div class="publication-title">
+            The Context Inversion Protocol: An Edge-First Profile for Persistent Human Context, with a Local
+            Custody and Provenance Prototype
+          </div>
+          <div class="author"><a href="https://robertpotter.me/" rel="author">Robert E. Potter</a></div>
+          <div class="date">
+            Sovereign OS Project &mdash; Independent Research Initiative<br />
+            Version 0.2.0 &middot; August 2026<br />
+            <a href="/sovereign-os-whitepaper.pdf" target="_blank" rel="noopener noreferrer">[Download PDF]</a>
+            <a href="/whitepaper-raw.md" target="_blank" rel="noopener noreferrer">[Markdown]</a>
+            <a href="/CITATION.bib" target="_blank" rel="noopener noreferrer">[BibTeX]</a>
+            <a href="https://doi.org/10.5281/zenodo.22313971" aria-label="DOI: 10.5281/zenodo.22313971">[DOI]</a>
+          </div>
+        </header>
+        <div class="two-column-layout">
+          <!-- Global Navigation -->
+          <nav class="toc-container">
+            <div class="toc-sticky">
+              <h3 class="toc-title">Contents</h3>
+              <ul class="toc-list">
+                <li>
+                  <a href="/" class="">1. Prologue</a>
+                </li>
+                <li>
+                  <a href="/concept/" class="">2. Concept</a>
+                </li>
+                <li>
+                  <a href="/faq/" class="">3. FAQ</a>
+                </li>
+                <li>
+                  <a href="/whitepaper/" class="current-page"
+                    >4. Whitepaper (The Protocol)</a
+                  >
+                  <ul>
+                    <li><a href="#abstract">0. Abstract</a></li>
+                    <li><a href="#introduction">1. Introduction</a></li>
+                    <li>
+                      <a href="#hcp-research-program">2. The Human Context Protocol Research Program</a>
+                    </li>
+                    <li><a href="#memory-architectures">3. Memory Architectures for Personal AI</a></li>
+                    <li>
+                      <a href="#sovereignty-practice"
+                        >4. Sovereignty and User-Controlled Memory in Practice</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#delegated-reasoning">5. Delegated Reasoning and Agentic Orchestration</a>
+                    </li>
+                    <li>
+                      <a href="#sovereign-os-prototype"
+                        >6. The Context Inversion Protocol and the SOS Custody Plane</a
+                      >
+                    </li>
+                    <li><a href="#privacy-security">7. Privacy, Security, and Governance</a></li>
+                    <li><a href="#comparative-positioning">8. Comparative Positioning</a></li>
+                    <li><a href="#challenges-future">9. Challenges and Future Directions</a></li>
+                    <li><a href="#conclusion">10. Conclusion</a></li>
+                    <li><a href="#references">11. References</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="article-body">
+            <h1 class="reader-view-title">
+              The Context Inversion Protocol: An Edge-First Profile for Persistent Human Context, with a Local Custody and Provenance Prototype
+            </h1>
+            <section class="paper-intro" id="abstract">
+            <h2 class="abstract-title">Abstract</h2>
+            <p>This paper names the <strong>Context Inversion Protocol (CIP)</strong> as Robert Potter's edge-first implementation profile for persistent human context. CIP would assign authority to the local edge and treat external models, agents, and tools as replaceable utilities behind a policy boundary. It is layered over the Human Context Protocol and the Model Context Protocol: it uses HCP's user-control semantics and MCP transport, together with the Global Memory Workshop's five-component runtime sketch, without replacing those specifications or taking HCP's preference store as the native object  <button class="citation-link" popovertarget="ref-1">[1]</button> <button class="citation-link" popovertarget="ref-2">[2]</button> <button class="citation-link" popovertarget="ref-3">[3]</button> <button class="citation-link" popovertarget="ref-4">[4]</button>. HCP specifies a user-owned preference layer that authorized models may ingest  <button class="citation-link" popovertarget="ref-1">[1]</button>. CIP specifies mediated access to a provenance-bearing custody plane in which a captured source, a machine observation, and an operator-accepted claim remain distinct.</p>
+            <p>Version 0.2.0 reports an early Sovereign OS (SOS) prototype that emerged after the first edition. As of August 2026 that prototype is published as the Sovereign OS Control Plane 1.6.0, an MIT-licensed local control plane for source custody, deterministic evidence, reviewed knowledge, typed relations, and traceable retrieval  <button class="citation-link" popovertarget="ref-5">[5]</button>. It is offered as an author-reported existence claim: durable personal context can be kept in ordinary, inspectable local artifacts without becoming a hidden personality profile. The prototype is not presented as a completed CIP or HCP implementation, it is not an "HCP-MCP stack," it is not a community-maintained production product, and it is not an independently verified result.</p>
+            <p>The distinction matters. A conventional AI memory or character profile may be visible as a short list of facts while the system that extracts, categorizes, ranks, and injects those facts remains vendor-controlled. SOS does not claim to automate self-knowledge or certify the quality of an operator's judgment. Its present contribution is to make the construction of durable personal context visible, revisable, and evidence-bearing. The full CIP runtime remains proposed: it would add a policy and authorization service, a context router, mediated interoperability, and audit of delegated execution in front of the local custody plane described here.</p>
+            </section>
+            <section id="introduction">
+            <h2>1 Introduction</h2>
+            <h3>1.1 A Recurring Cycle: Centralization, Reclamation, and the Stakes of Memory</h3>
+            <p>The history of personal computing is a repeating argument about where state lives. Mainframe timesharing centralized computation inside institutions and rented cycles back to users by the minute. The personal computer revolution of the late 1970s and 1980s inverted that default: computation, storage, and control moved onto a machine an individual owned outright. Cloud computing and software-as-a-service reversed the inversion a second time, moving files, identity, and increasingly cognition itself back into infrastructure controlled by a small number of vendors. Tim Berners-Lee's Solid project is an explicit attempt to run the reclamation half of that cycle again for personal data specifically, built on the premise that personal information should be "centred around people, instead of around apps"  <button class="citation-link" popovertarget="ref-6">[6]</button>. Solid's Pods are personal online data stores where users "store information once and decide who can access what"  <button class="citation-link" popovertarget="ref-7">[7]</button>, governed by Inrupt's "fine-grained access controls" set by the owner rather than the application requesting access  <button class="citation-link" popovertarget="ref-8">[8]</button>. Security technologist Bruce Schneier summarized the model plainly: "Your data lives in a pod that is controlled by you ...You authorize granular access to that pod to whoever you want"  <button class="citation-link" popovertarget="ref-9">[9]</button>. Real deployments already exist at civic scale: Flanders' data-utility company Athumi piloted a Solid-based recruitment application built with staffing firm Randstad and planned to scale it to 30,000 users during 2024, with Athumi's chief executive describing the underlying shift as one where "the data subject becomes the data controller"; separately, five Belgian hospitals began storing hospital-visit records inside patients' own Pods rather than a hospital-controlled database  <button class="citation-link" popovertarget="ref-6">[6]</button>.</p>
+            <p>Personal AI memory is where this cycle reaches its highest stakes yet. A model that remembers a user's health conditions, relationships, finances, and unfinished projects across sessions is not a convenience feature – it is a second copy of a person's cognitive context, and whoever controls its storage, its access policy, and its export path controls a durable share of that person's relationship with every AI system they will ever use. The Sovereign OS Project takes its name, and its founding argument, from this history: that the correct default for persistent human context is the personal-computer default, not the cloud-timesharing default, and that the recent flourishing of academic and institutional work formalizing related positions – discussed at length below – is evidence that the argument has moved from a philosophical stance to an engineering research program with named protocols, a growing set of prototypes, and an unresolved question about what the stored object actually is.</p>
+            <h3>1.2 Positioning Statement</h3>
+            <p>The objects of this paper are three nested claims, and they must not be collapsed.</p>
+            <ol>
+            <li><strong>The Sovereign OS Project</strong> is an independent research initiative. Its question is where authority over persistent human context should reside as AI systems become more capable.</li>
+            <li><strong>The Context Inversion Protocol</strong> is the project's hypothesis: that authority belongs at the edge; that models, agents, and tools are replaceable utilities; and that every external read, proposed write, and delegated action should cross a local policy boundary. CIP composes HCP's user-control semantics with MCP's tool transport and the Global Memory Workshop's five-component architecture  <button class="citation-link" popovertarget="ref-1">[1]</button> <button class="citation-link" popovertarget="ref-2">[2]</button> <button class="citation-link" popovertarget="ref-3">[3]</button> <button class="citation-link" popovertarget="ref-4">[4]</button>. It does not claim to originate those specifications.</li>
+            <li><strong>Sovereign OS (SOS)</strong> is a published prototype of the first layer such a protocol would require: a local custody plane in which sources, machine observations, and accepted human knowledge remain distinct, inspectable, and revisable. Version 1.6.0 is the artifact described in this edition  <button class="citation-link" popovertarget="ref-5">[5]</button>. It is not CIP. It is not HCP. It does not presently expose MCP.</li>
+            </ol>
+            <p>Those three objects remain distinct without HCP. SOS is the local custody plane: captured sources, deterministic evidence, and operator-accepted knowledge, kept as ordinary files. CIP would add a mediated runtime in front of that plane – a local gateway, purpose-limited grants, provenance-bearing bundles, and a ledger of disclosure – so replaceable models and tools never mount the store. HCP is not required for either layer to exist. It is the protocol-family vocabulary this paper uses when the remaining problem is scoped sharing with AI systems.</p>
+            <p>HCP's December 2025 expanded working paper and a March 2026 multi-institution workshop report on the same protocol family establish that mediated access, store operations, and audit are named parts of that protocol family rather than gaps left open by it. The expanded paper specifies Read, Write, Update, and Delete actions over the protocol's data store, exposable as REST endpoints or Model Context Protocol (MCP) tools, and states that "transparent audit logs allow users to review exactly which agents accessed which data and when" (Section 2.2)  <button class="citation-link" popovertarget="ref-2">[2]</button>. The workshop report goes further, decomposing a user-governed context layer into five named components – Memory Store, Policy &amp; Authorization Service, Context Router (Memory Manager), Audit &amp; Provenance Subsystem, and Interoperability Interface – with the Interoperability Interface defined around add, search, update, and delete operations  <button class="citation-link" popovertarget="ref-3">[3]</button>.</p>
+            <p>The claim this paper defends is therefore two-layered, and the second layer is not a restatement of the first. HCP's research program has moved from position paper to architectural blueprint, while leaving open an independently auditable, local, and operational implementation of its combined components. That blueprint, however, still treats the stored object as a preference or personalization layer that authorized models ingest  <button class="citation-link" popovertarget="ref-1">[1]</button>. Rebuilding HCP at the edge – a local PostgreSQL of categorized facts, exposed over MCP, with better consent – would leave the silent-profile problem intact. The SOS prototype is offered as an author-reported local existence claim of a different kind: a custody and evidence plane can make persistent context inspectable before a model is asked to reason over it, and it can refuse to treat a personality profile as the native record. It does not yet provide the policy and authorization service, context router, interoperability interface, or audited delegated execution required for a CIP runtime. The prototype therefore narrows the research program rather than resolving it. It identifies a feasible substrate for sovereign context and makes the remaining enforcement problem explicit.</p>
+            </section>
+            <section id="hcp-research-program">
+            <h2>2 The Human Context Protocol Research Program</h2>
+            <h3>2.1 HCP: The Original Position Paper</h3>
+            <p>The Human Context Protocol was introduced by Anand V. Shah and Michiel A. Bakker (MIT), Tobin South (MIT), Talfan Evans (Persona Labs), Hannah Rose Kirk (University of Oxford / UK AI Security Institute), Andrew Trask (OpenMined), and E. Glen Weyl (Microsoft Research), who argue that "robust AI personalization requires a Human Context Protocol (HCP): a user-owned, secure, and interoperable preference layer that grants individuals granular, revocable control over how their data steers AI systems"  <button class="citation-link" popovertarget="ref-1">[1]</button>. The paper specifies four design attributes any conforming system must satisfy: <strong>Interoperable</strong> (facilitated by "open, well-supported, and existing communication protocols"); <strong>Sufficiently Representative</strong> (a data model "at least as expressive as state-of-the-art techniques in preference capture"); <strong>Scopable Sharing</strong> ("fine-grained, revocable, and editable control over what preference information is shared and with whom ...a user should be able to share culinary preferences with a recipe generator without exposing mental health information"); and <strong>Secure</strong> ("preferences must be secured at rest and in transit, with strong authentication and authorization mechanisms")  <button class="citation-link" popovertarget="ref-1">[1]</button>.</p>
+            <p>The authors built and shipped a proof-of-concept: a web application in which users manage preferences and third-party access, backed by an integrated MCP server that enforces "user authentication and granular authorization for distinct preference categories," with preferences "stored as categorized textual data in PostgreSQL" and a GPT-4o-based "HCP LLM" that "ingests only authorized preference categories" per query  <button class="citation-link" popovertarget="ref-1">[1]</button>. The reference implementation is publicly available  <button class="citation-link" popovertarget="ref-10">[10]</button>. That repository (github.com/tobinsouth/hcp-demo), maintained by co-author Tobin South as a Stanford Digital Economy Lab / Consumer Reports collaboration, is in practice a Next.js application that stages the protocol's story across three progressive scenes – Human Context, Grant of Authority, and Applications – rather than exposing a runnable backend a third party could deploy and audit end to end. As of August 2026 it carries no license file and no tagged release, a discrepancy with the original paper's own text, which describes this same prototype as "open-source"  <button class="citation-link" popovertarget="ref-1">[1]</button> <button class="citation-link" popovertarget="ref-10">[10]</button>. This is not a criticism of the demo's communicative purpose, but it is the first of several concrete gaps between HCP's stated intentions and its shipped artifacts. Critically, the original paper is explicit that the prototype is minimal and that specification, not implementation, is its contribution: "this paper does not prescribe a definitive implementation for HCP; any system fulfilling the aforementioned design attributes would be suitable"  <button class="citation-link" popovertarget="ref-1">[1]</button>.</p>
+            <h3>2.2 The Expanded Working Paper: Actions, Audit, and an Expanded Author List</h3>
+            <p>The protocol's expanded working paper, retitled "Robust AI Personalization Controls: The Human Context Protocol," dated 18 December 2025 by Stanford Digital Economy Lab, and co-authored with Jiaxin Pei (Stanford), expands the specification in ways that materially change what a downstream implementer can claim as novel  <button class="citation-link" popovertarget="ref-2">[2]</button>. The authors do not number this document as a separate protocol version. Two changes matter most for this paper's positioning. First, the four design attributes are renamed and one is substantively redefined: <strong>Interoperability</strong>, <strong>Encapsulation</strong>, <strong>Control</strong>, and <strong>Security</strong>. Encapsulation states that the data model "should leverage advances in preference representation (whether as text, graph-based knowledge structures, vector embeddings), provided those representations are portable"  <button class="citation-link" popovertarget="ref-2">[2]</button>. A local graph is therefore a permitted HCP representation, not a forbidden analogy. Encapsulation does not rank graphs above text or vectors, and a graph does not by itself satisfy Control or Security. Section 6.4 returns to this permission: the SOS prototype uses typed local records; it does not claim to have satisfied Encapsulation as a gated, portable preference interface.</p>
+            <p>Second, the expanded paper specifies four store actions – Read, Write, Update, and Delete – exposable as REST endpoints or as MCP tools, and states that "transparent audit logs allow users to review exactly which agents accessed which data and when"  <button class="citation-link" popovertarget="ref-2">[2]</button>. An audit layer is therefore a named, specified part of the protocol itself, not an unaddressed gap. What that paper does not establish is a <em>working, open-source, community-auditable implementation</em> of that audit layer; it remains a specification accompanied by a single reference prototype that is publicly visible but carries no open-source license, no tagged releases, and no independent verification in production use  <button class="citation-link" popovertarget="ref-10">[10]</button>.</p>
+            <h3>2.3 The Global Memory Workshop: A Five-Component Reference Architecture</h3>
+            <p>The most consequential document for scoping CIP's remaining runtime is not a paper by the original HCP authors at all, but the unsigned final report of the March 11–12, 2026 Global Memory Workshop, titled "The Future of Personal AI: Portable and Persistent Personal Memory through a Unified Human Context Protocol"  <button class="citation-link" popovertarget="ref-3">[3]</button>. The report lists the Gates Foundation, AWS, the Mozilla Foundation, Slalom, and Stanford HAI on its footer; its executive summary names the Gates Foundation, Mozilla Foundation, Stanford HAI, and AWS as co-organizers. Stanford Digital Economy Lab hosts the PDF. The title places the report in the HCP protocol family; the PDF itself does not print a personal author byline.</p>
+            <p>The workshop report decomposes a user-governed context layer into five named architectural components  <button class="citation-link" popovertarget="ref-3">[3]</button>:</p>
+            <ol>
+            <li><strong>Memory Store</strong> – a durable store of human-readable entries with machine-usable metadata, and an optional vector index.</li>
+            <li><strong>Policy &amp; Authorization Service</strong> – token validation and least-privilege, category-scoped grants with revocation.</li>
+            <li><strong>Context Router (Memory Manager)</strong> – selects what to disclose given the request, permitted scopes, and minimization rules.</li>
+            <li><strong>Audit &amp; Provenance Subsystem</strong> – an append-only log of memory accesses and mutations.</li>
+            <li><strong>Interoperability Interface</strong> – constrained add, search, update, and delete operations mediated by the policy layer.</li>
+            </ol>
+            <p>Orchestration, audit, and interoperable execution – capabilities that a reading of the original 2025 HCP position paper alone might suggest are unaddressed – each map onto a named component in this five-part architecture. The protocol ecosystem around HCP is, as specification, considerably more built out than the original position paper alone would indicate. CIP's proposed mediation layer is that architecture placed in front of a local custody plane, with MCP as gateway transport rather than as SOS's native API. The resemblance is intentional. CIP is an implementation profile for an existing stack, not a competing five-component diagram.</p>
+            <p>That said, the workshop report is equally explicit about what remains unresolved, and its own language is the strongest available textual anchor for the gap still open after the SOS prototype. A dedicated section on "On-Device and Small Model Constraints" calls for "distillation and fine-tuning toward memory tasks," "hybrid pipelines combining small models with deterministic components," and "tiered execution, where local models handle sensitive operations and only escalate to larger models under explicit permission"  <button class="citation-link" popovertarget="ref-3">[3]</button>. None of these are described as solved – they are described as requirements for future work. The original HCP preprint frames its own prototype as "an early step" rather than a production system  <button class="citation-link" popovertarget="ref-1">[1]</button>. The workshop report frames the core systemic risk as consolidation of the memory layer "inside a handful of frontier model providers"  <button class="citation-link" popovertarget="ref-3">[3]</button> – language that directly reinforces this paper's sovereignty framing in Section 1.</p>
+            <h3>2.4 What the HCP Research Program Leaves Open</h3>
+            <p>Synthesizing the three publications, three concrete gaps remain open as of August 2026:</p>
+            <ol>
+            <li><strong>No open-source, production-oriented implementation.</strong> HCP's own prototype is a single research demo built to validate the specification, not a community-maintained, auditable, redistributable codebase intended for other developers to run and extend in production.</li>
+            <li><strong>No working local memory graph.</strong> The workshop's own call for on-device, small-model, tiered execution is unaddressed by any of the three publications' reference implementations, all of which store preferences in a centralized PostgreSQL instance rather than a local, portable graph structure.</li>
+            <li><strong>No demonstrated agentic delegation layer.</strong> While the expanded HCP paper specifies Read/Write/Update/Delete actions and audit logging over the memory store itself, none of the three publications demonstrate a sub-agent or third-party tool actually executing a delegated task under the protocol's consent and audit guarantees – the protocol governs access to context, not the downstream use of that context to act.</li>
+            </ol>
+            <p>Version 0.2.0 separates a current prototype from the larger proposal. The SOS prototype is an author-reported local existence claim on the second gap: typed records, deterministic evidence, and retained sources, expressed as ordinary files rather than as a preference database. Version 1.6.0 supplies a public, MIT-licensed control plane  <button class="citation-link" popovertarget="ref-5">[5]</button>; it does not supply a production-oriented community project, a policy boundary, or delegated task execution. It also names a prior problem that HCP treats as given. HCP's object is a preference layer that grants individuals control over how their data steers AI systems  <button class="citation-link" popovertarget="ref-1">[1]</button>. SOS's object is the construction of durable context before any such layer is allowed to form. The proposed CIP runtime would add the missing mediation and execution layers in front of that custody plane; it would not replace the plane with a categorized profile.</p>
+            </section>
+            <section id="memory-architectures">
+            <h2>3 Memory Architectures for Personal AI</h2>
+            <h3>3.1 Why Statelessness Forces an External Memory Architecture</h3>
+            <p>Large language models are fundamentally stateless: each inference draws only on the tokens placed in a bounded context window, and nothing persists once that window closes. The MemGPT paper frames the problem directly, observing that LLMs "are constrained by limited context windows, hindering their utility in tasks like extended conversations and document analysis"  <button class="citation-link" popovertarget="ref-11">[11]</button>. The Mem0 authors make the same point about long-horizon interaction specifically: "fixed context windows pose fundamental challenges for maintaining consistency over prolonged multi-session dialogues"  <button class="citation-link" popovertarget="ref-12">[12]</button>.</p>
+            <p>Simply enlarging the window does not resolve this. Anthropic's engineering guidance describes "context rot," whereby "as the number of tokens in the context window increases, the model's ability to accurately recall information from that context decreases," a property that "emerges across all models" because the transformer architecture's pairwise attention computation is "stretched thin" at long context lengths  <button class="citation-link" popovertarget="ref-13">[13]</button>. Context must therefore be treated "as a finite resource with diminishing marginal returns," the premise behind the discipline of context engineering: "the set of strategies for curating and maintaining the optimal set of tokens ...during LLM inference"  <button class="citation-link" popovertarget="ref-13">[13]</button>.</p>
+            <h3>3.2 Architectural Families</h3>
+            <p><strong>Retrieval-augmented generation (RAG)</strong> embeds text into vectors, stores them in a vector database, and retrieves the most semantically similar chunks at query time. It is simple and cheap to write, but stale and imprecise when embeddings blur distinct facts, and it cannot represent evolving relationships or temporal validity – a direct challenge to HCP's Sufficiently Representative / Encapsulation attribute if used naively as a preference-capture mechanism.</p>
+            <p><strong>Hierarchical, OS-style paging</strong>, introduced by MemGPT (now developed as Letta), draws "inspiration from hierarchical memory systems in traditional operating systems" and pages information between an in-context working set and an external store via model-issued function calls  <button class="citation-link" popovertarget="ref-11">[11]</button>. This is the architectural metaphor the Sovereign OS Project borrows for its "Operating System" framing: paging and custody, not a consumer operating system.</p>
+            <p><strong>Memory streams with reflection</strong>, from the Stanford Generative Agents work, record "a comprehensive list of the agent's experiences" in natural language and periodically synthesize higher-level insights through a reflection process that fires when accumulated importance scores cross a threshold  <button class="citation-link" popovertarget="ref-14">[14]</button>. Retrieval combines recency, importance, and semantic relevance as a weighted score  <button class="citation-link" popovertarget="ref-14">[14]</button>.</p>
+            <p><strong>Temporal knowledge graphs</strong>, exemplified by Zep, organize memory into episode, entity, and community subgraphs with a bi-temporal model tracking both when a fact was true in the world and when it was ingested, enabling "edge invalidation" – marking superseded facts outdated while preserving history – rather than deletion  <button class="citation-link" popovertarget="ref-15">[15]</button>. Zep's production benchmark page reports 94.7% accuracy on LoCoMo and 90.2% on LongMemEval  <button class="citation-link" popovertarget="ref-16">[16]</button>, though these figures are vendor self-reported; a March 2026 comparison published by Vectorize – itself a vendor of a competing memory product, Hindsight, which the same comparison recommends evaluating – reported Zep at only 63.8% and Mem0 at 49.0% on LongMemEval using GPT-4o, well below either vendor's own claims  <button class="citation-link" popovertarget="ref-17">[17]</button>. Neither side of this comparison is a neutral source: the divergence between Zep's and Mem0's self-reported figures and a rival vendor's unfavorable re-measurement of both is itself a standing caution against treating any single vendor-published memory benchmark as load-bearing evidence for an architecture decision.</p>
+            <p><strong>Managed extraction pipelines</strong>, exemplified by Mem0 and its graph-augmented variant Mem0^g^, "dynamically extract, consolidate, and retrieve salient information," reporting "26% relative improvements in the LLM-as-a-Judge metric over OpenAI" on the LOCOMO benchmark, with the graph variant scoring roughly two points higher again  <button class="citation-link" popovertarget="ref-12">[12]</button> – a figure self-reported by Mem0's own co-founders (the paper's listed authors include Mem0's CEO and CTO) rather than an independently verified result, the same caveat that applies to the Zep figures discussed above.</p>
+            <table class="data-table">
+            <thead>
+            <tr>
+            <th>Approach</th>
+            <th>Strengths</th>
+            <th>Weaknesses / Risks</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><strong>RAG / vector store</strong></td>
+            <td>Simple, cheap writes, scalable</td>
+            <td>Staleness; retrieval imprecision; no relational or temporal modeling  <button class="citation-link" popovertarget="ref-12">[12]</button></td>
+            </tr>
+            <tr>
+            <td><strong>Hierarchical paging (MemGPT/Letta)</strong></td>
+            <td>Extends effective context; self-managed</td>
+            <td>Added control-flow complexity  <button class="citation-link" popovertarget="ref-11">[11]</button></td>
+            </tr>
+            <tr>
+            <td><strong>Memory stream + reflection (Generative Agents)</strong></td>
+            <td>Captures recency/importance/relevance; compresses via reflection</td>
+            <td>Hand-tuned weights; reflection cost  <button class="citation-link" popovertarget="ref-14">[14]</button></td>
+            </tr>
+            <tr>
+            <td><strong>Temporal knowledge graph (Zep)</strong></td>
+            <td>Relational reasoning; fact invalidation; non-lossy history</td>
+            <td>Graph construction overhead; vendor benchmarks unverified independently  <button class="citation-link" popovertarget="ref-15">[15]</button> <button class="citation-link" popovertarget="ref-17">[17]</button></td>
+            </tr>
+            <tr>
+            <td><strong>Managed extraction (Mem0/Mem0^g^)</strong></td>
+            <td>Strong benchmark accuracy; large token savings</td>
+            <td>Extraction-LLM dependence; sensitive-data leakage risk; founder-authored benchmark, unverified independently  <button class="citation-link" popovertarget="ref-12">[12]</button></td>
+            </tr>
+            <tr>
+            <td><strong>HCP preference store</strong></td>
+            <td>Simple; MCP-native; scoped sharing; revocable</td>
+            <td>Narrow scope (preferences, not general graph memory); centralized PostgreSQL  <button class="citation-link" popovertarget="ref-1">[1]</button></td>
+            </tr>
+            </tbody>
+            </table>
+            <p>None of the general-purpose memory systems above were designed against HCP's Scopable Sharing / Control attribute – fine-grained, revocable, per-recipient disclosure – and none, including HCP's own reference prototype, implement the local graph representation the expanded paper's Encapsulation attribute explicitly permits  <button class="citation-link" popovertarget="ref-2">[2]</button>. Those remain openings for a CIP runtime. They are not, taken together, a description of the SOS prototype. Extraction pipelines such as Mem0 are the nearest product analogue to the silent-profile pattern the prototype refuses: salient facts are model-extracted, consolidated, and later injected, with the construction of those facts remaining inside the memory system rather than as inspectable source, observation, and accepted claim.</p>
+            </section>
+            <section id="sovereignty-practice">
+            <h2>4 Sovereignty and User-Controlled Memory in Practice</h2>
+            <h3>4.1 Personal Data Stores: Solid and Inrupt</h3>
+            <p>The most developed standards effort for user-owned data remains the W3C Solid project. Inrupt's implementation uses per-resource Access Control Policies and verifiable credentials, such that "if a resource has no Policies that apply to it, the resource is inaccessible" by default  <button class="citation-link" popovertarget="ref-8">[8]</button>. HCP's own authors situate their work in this lineage explicitly, citing "earlier work in personal data stores" as the foundation they extend to "the scale and stakes of modern generative AI"  <button class="citation-link" popovertarget="ref-1">[1]</button>. Solid demonstrates that standards-based personal data sovereignty is deployable at civic scale, but its application-developer ecosystem remains comparatively small relative to the AI personalization space HCP targets.</p>
+            <h3>4.2 Local-First and On-Device Memory</h3>
+            <p>A parallel movement builds memory that never leaves the user's hardware, and by 2026 it has moved well past forum speculation into shipped, benchmarked systems. Stanford's Hazy Research and Scaling Intelligence Lab, together with Lambda Labs, released OpenJarvis in mid-2026: an Apache-2.0 on-device framework that runs inference, agent state, and interchangeable memory backends locally, with an adapter for external MCP servers as tools, landing within 3.2 percentage points of frontier cloud-model accuracy across eight benchmarks while cutting marginal cost roughly 800-fold and end-to-end latency roughly four-fold  <button class="citation-link" popovertarget="ref-18">[18]</button>. Apple Intelligence embodies the on-device model at consumer scale: its "cornerstone ...is on-device processing, so it is aware of your personal information without collecting your personal information," and includes an "on-device semantic index that can organize personal information from across apps"  <button class="citation-link" popovertarget="ref-19">[19]</button>, with a Private Cloud Compute tier for heavier workloads that processes "only the data that is relevant to the task" and is not retained  <button class="citation-link" popovertarget="ref-20">[20]</button>. Independent academic verification of such vendor claims remains rare and technically demanding: the first published reverse-engineering study of Private Cloud Compute had to build its own tooling just to query the system outside Apple's intended interfaces, noting "there are no reproducible builds, and there are no symbols within those binaries," and found the underlying proprietary model's independently benchmarked accuracy comparable to, but below, Apple's own published figures  <button class="citation-link" popovertarget="ref-21">[21]</button> – a reminder that sovereignty claims require independent verification rather than vendor assertion, a standard this paper applies to its own claims below. Neither OpenJarvis nor Apple Intelligence implements HCP's specific consent, revocation, or scoped-sharing semantics: OpenJarvis is a general-purpose local-agent framework with no per-recipient access control over what a connected tool may read from memory, and Apple Intelligence exposes no interoperable protocol for third parties to request scoped access at all. The remaining gap is therefore not "local, on-device AI" – OpenJarvis already demonstrates that convincingly – but mediated access to a local custody plane that is not itself an ungated memory backend or a vendor semantic index. That is CIP's remaining work. It is not a claim that SOS already supplies HCP's consent-scoped interoperability layer.</p>
+            <h3>4.3 How Commercial Products Expose or Withhold User Control</h3>
+            <p>Commercial assistants have converged on a common structural pattern – "compressed long-term memory paired with raw working memory"  <button class="citation-link" popovertarget="ref-22">[22]</button> – while diverging sharply in transparency and portability.</p>
+            <table class="data-table">
+            <thead>
+            <tr>
+            <th>Product</th>
+            <th>Storage</th>
+            <th>User Control</th>
+            <th>Portability</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><strong>ChatGPT</strong></td>
+            <td>Cloud</td>
+            <td>Manage, per-item delete, clear all  <button class="citation-link" popovertarget="ref-23">[23]</button></td>
+            <td>Not documented in fetched sources</td>
+            </tr>
+            <tr>
+            <td><strong>Claude</strong></td>
+            <td>Cloud</td>
+            <td>Per-item + clear all, Temporary Chat  <button class="citation-link" popovertarget="ref-24">[24]</button></td>
+            <td>Import tool for other chatbots' exports  <button class="citation-link" popovertarget="ref-25">[25]</button></td>
+            </tr>
+            <tr>
+            <td><strong>Gemini</strong></td>
+            <td>Cloud</td>
+            <td>Toggle, delete, Temporary Chats  <button class="citation-link" popovertarget="ref-26">[26]</button></td>
+            <td>Not documented in fetched sources</td>
+            </tr>
+            <tr>
+            <td><strong>Copilot / Recall</strong></td>
+            <td>Local (encrypted)</td>
+            <td>Exclude apps/sites, delete ranges, uninstall  <button class="citation-link" popovertarget="ref-27">[27]</button></td>
+            <td>Local DB on device</td>
+            </tr>
+            <tr>
+            <td><strong>Perplexity</strong></td>
+            <td>Cloud (encrypted)</td>
+            <td>Per-item + bulk clear; 30-day cleared log  <button class="citation-link" popovertarget="ref-28">[28]</button></td>
+            <td>Not documented in fetched sources</td>
+            </tr>
+            <tr>
+            <td><strong>Apple Intelligence</strong></td>
+            <td>On-device + PCC</td>
+            <td>Per-app iCloud toggles; exportable PCC report  <button class="citation-link" popovertarget="ref-20">[20]</button></td>
+            <td>Local device storage</td>
+            </tr>
+            <tr>
+            <td><strong>HCP prototype</strong></td>
+            <td>Cloud (PostgreSQL)</td>
+            <td>Web UI; per-category authorization  <button class="citation-link" popovertarget="ref-1">[1]</button></td>
+            <td>Interoperable by design (MCP-native)</td>
+            </tr>
+            </tbody>
+            </table>
+            <p>User control has improved across the industry – deletion, project scoping, and temporary modes are now common – but standards-based, full-export portability remains weak. Only Claude documents an import path for other vendors' exports  <button class="citation-link" popovertarget="ref-25">[25]</button>, and no fetched vendor source documents a full, standards-based export of its memory store. This paper takes HCP as the protocol-level anchor for scoped disclosure rather than as a competitor to differentiate against. Visibility of a fact list is not the same as inspectability of how those facts were constructed. The commercial pattern above is the problem statement for SOS's custody plane; HCP's scoped-sharing semantics are the problem statement for CIP's still-unbuilt gate.</p>
+            </section>
+            <section id="delegated-reasoning">
+            <h2>5 Delegated Reasoning and Agentic Orchestration</h2>
+            <h3>5.1 Tool Use and the Model Context Protocol</h3>
+            <p>Anthropic's Model Context Protocol (MCP), announced November 25, 2024, standardizes the boundary between a model and external tools as "a universal, open standard for connecting AI systems with data sources, replacing fragmented integrations with a single protocol"  <button class="citation-link" popovertarget="ref-4">[4]</button>. MCP servers expose Tools, Resources, and Prompts over JSON-RPC 2.0, and the specification treats host-level confirmation of tool use as a SHOULD-level recommendation rather than a mandatory guarantee, leaving the precise interaction model to the host implementation  <button class="citation-link" popovertarget="ref-29">[29]</button>. Secondary commentary sometimes states this more strongly – "every tool call goes through user approval" – which is an accurate description of intended host practice, not of a protocol MUST  <button class="citation-link" popovertarget="ref-30">[30]</button>. Adopted subsequently by OpenAI, which added MCP support across its Agents SDK and ChatGPT products after its CEO said "people love MCP and we are excited to add support across our products"  <button class="citation-link" popovertarget="ref-31">[31]</button>, and by Google DeepMind, which added native MCP support to the Gemini API and SDK  <button class="citation-link" popovertarget="ref-32">[32]</button>, MCP is, nearly two years after its release, "the closest thing the AI industry has to an actual standard"  <button class="citation-link" popovertarget="ref-30">[30]</button>. This is the same protocol family HCP's own reference prototype uses as its interoperability transport  <button class="citation-link" popovertarget="ref-1">[1]</button>. The workshop report names an Interoperability Interface as a constrained add/search/update/delete tool surface; it does not name MCP as that interface's required transport  <button class="citation-link" popovertarget="ref-3">[3]</button>. CIP would use MCP at its gateway: a local MCP and API surface through which replaceable models request scoped context without mounting the custody plane. SOS does not presently expose such a server. An operator may use a conversational agent against SOS's local control plane; that arrangement is a trusted-authoring workflow, not CIP's mediated runtime, and it is not an HCP-compliant MCP implementation.</p>
+            <h3>5.2 Agent-to-Agent Delegation</h3>
+            <p>Google's Agent2Agent (A2A) protocol, introduced April 2025 and later contributed to the Linux Foundation, standardizes how "different, independent AI agents communicate and collaborate with each other"  <button class="citation-link" popovertarget="ref-33">[33]</button>. A2A advertises agent capabilities via signed "Agent Cards" and, critically, "allow[s] agents to collaborate without needing to share internal memory, proprietary logic, or specific tool implementations"  <button class="citation-link" popovertarget="ref-34">[34]</button>, preserving opacity between a delegating agent and the agents or tools it delegates to. A2A and MCP are explicitly complementary: A2A "complements Anthropic's Model Context Protocol (MCP), which provides helpful tools and context to agents"  <button class="citation-link" popovertarget="ref-33">[33]</button>. HCP's own paper gestures at A2A as a candidate integration path but, consistent with the gaps identified in Section 2.4, does not specify how a preference layer would mediate or audit cross-agent delegation in practice  <button class="citation-link" popovertarget="ref-1">[1]</button>. CIP would inherit that unsolved mediation problem; SOS does not claim to have solved it.</p>
+            <h3>5.3 Task Decomposition and Human-in-the-Loop Trust Boundaries</h3>
+            <p>The prevailing orchestration pattern dispatches specialized sub-agents that "handle focused tasks with clean context windows" and return "only a condensed, distilled summary of its work," preserving a clear separation of concerns between exploration and synthesis  <button class="citation-link" popovertarget="ref-13">[13]</button>. Both major delegation protocols push consent decisions to a human: MCP's specification states that when servers request completions via sampling, "there SHOULD always be a human in the loop with the ability to deny sampling requests," and that applications "SHOULD" present confirmation prompts for tool calls, while explicitly noting that "the protocol itself does not mandate any specific user interaction model"  <button class="citation-link" popovertarget="ref-29">[29]</button> <button class="citation-link" popovertarget="ref-30">[30]</button>. This human-in-the-loop guidance is the primary control preventing a delegated sub-agent or tool from acting beyond its authorized scope – and, as Section 7 shows, it is necessary but not sufficient on its own. The SOS prototype already treats human review as the only path from proposed synthesis to durable knowledge. That is an authoring-time gate, not a runtime authorization service for third-party tools.</p>
+            </section>
+            <section id="sovereign-os-prototype">
+            <h2>6 The Context Inversion Protocol and the SOS Custody Plane</h2>
+            <h3>6.1 Scope of the Contribution</h3>
+            <p>The Context Inversion Protocol is the implementation profile authored by Robert Potter for the topology developed in this paper. As specified here, CIP would assign authority over persistent human context to the local edge, require every external disclosure to pass through a consent-scoped policy boundary, and treat remote models, agents, and tools as replaceable compute utilities rather than context owners. CIP composes HCP's user-control semantics with MCP's tool transport and the Global Memory Workshop's five-component architecture; it does not claim to originate those underlying specifications.</p>
+            <p>CIP is not a rebuilt Human Context Protocol. HCP answers how a user-owned preference layer can be shared with AI systems interoperably  <button class="citation-link" popovertarget="ref-1">[1]</button>. SOS answers how durable context can be constructed and kept inspectable under individual authority. CIP answers how that plane can later be disclosed to replaceable models and tools without becoming a silent profile a model is assumed to "know." The workshop's five components remain the right runtime sketch for that disclosure problem  <button class="citation-link" popovertarget="ref-3">[3]</button>. They are not, by themselves, a specification of the store those components would be allowed to touch.</p>
+            <p>Sections 2 through 5 establish that the HCP research program already specifies interoperability, representational encapsulation (including graph-based representations), scoped consent, and audit logging as protocol-level requirements, and that the broader field has separately developed strong memory-architecture and delegation-protocol building blocks. Version 0.1.0 proposed that Sovereign OS would instantiate the CIP profile and that stack end to end. Version 0.2.0 withdraws the completion claim. This edition reports the SOS control plane (version 1.6.0) as a published local custody and provenance prototype  <button class="citation-link" popovertarget="ref-5">[5]</button>. A CIP runtime would sit in front of a plane like SOS; it would not replace it, and SOS would not become CIP by renaming. The custody plane is now a permissively licensed public artifact; the CIP mediation layer remains a proposed runtime rather than shipped software. This paper publishes the protocol claim; it does not claim that the published control plane is that runtime.</p>
+            <h3>6.2 Prototype Description: An Evidence-Oriented Local Control Plane</h3>
+            <p>Sovereign OS is a transparent local control plane for durable human context. It does not create a hidden personality profile or delegate judgment to a model. It preserves source material, produces inspectable evidence, and lets the operator explicitly accept or revise the knowledge that becomes durable.</p>
+            <p>The mechanism is a three-tier arrangement, and that arrangement is the product distinction:</p>
+            <ul>
+            <li><strong>Tier 3</strong> is captured reality: unmodified sources under local archive custody.</li>
+            <li><strong>Tier 2</strong> is deterministic observation: hash-bound extractions, indexes, and, where explicitly authorized, provenance-bound model artifacts that remain evidence rather than knowledge.</li>
+            <li><strong>Tier 1</strong> is accepted knowledge: operator-reviewed records with canonical identifiers and typed relations.</li>
+            </ul>
+            <p>Capture, ingest, debrief, and retrieve is the operating loop that realizes that philosophy. It is not a second-brain workflow and not a claim that the loop itself is the contribution. The published control plane implements that loop as a local command-line interface together with conversational review protocols; it stores no provider key and does not run a hosted API  <button class="citation-link" popovertarget="ref-5">[5]</button>.</p>
+            <p>Reviewed knowledge is Markdown with YAML identifiers and five typed predicates (DERIVES_FROM, GOVERNS, IMPLEMENTS, EVIDENCES, TRANSMUTES). Deterministic evidence is hash-bound companion files, including JSONL indexes keyed by SHA-256 of the source bytes. Sources remain archived originals. Domain charters declare an information-flow class (private, restricted, or public) that structural audit enforces among records; those classes are not HCP-style grants to external models. A pending debrief record is a control object, not knowledge; a model may assist with synthesis, but a durable Tier 1 record is created only after the operator approves the proposed text and its evidence route.</p>
+            <p>This architecture distinguishes three propositions that character-profile systems commonly conflate: a source exists, a process observed or extracted something from it, and an operator accepts a statement about it. The distinction does not make the operator infallible, and it is not a cryptographic proof that every sentence has been read. It makes the site of judgment explicit. Evidence may be traced through an indexed deterministic artifact to the retained source, using the most precise truthful locator that the medium supports: a source line or row where available, otherwise a transcript segment and timestamp, page, image observation, or archive reference. The prototype's audit validates structural relations, information-flow boundaries, and evidence custody; it does not yet mediate external model access at runtime.</p>
+            <p>The prototype's non-goals are as load-bearing as its goals. SOS is not a second-brain application. It is not an autonomous life manager. It is not a universal personal profile. It is not an agent runtime with broad ambient access to the operator's files. A conversational agent may be pointed at a living instance as a trusted author; durable writes still pass a review gate. That is not ambient access to the rest of the operator's filesystem, and it is not CIP's capability-gated disclosure.</p>
+            <table class="data-table">
+            <thead>
+            <tr>
+            <th>Prototype element</th>
+            <th>Present function</th>
+            <th>CIP status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><strong>Tier 1 reviewed records</strong></td>
+            <td>Local, operator-accepted knowledge in ordinary files</td>
+            <td>Candidate memory-store representation; not a policy-enforced shared store</td>
+            </tr>
+            <tr>
+            <td><strong>Tier 2 deterministic evidence</strong></td>
+            <td>Hash-bound extractions, indexes, and model-artifact contracts</td>
+            <td>Provenance substrate; not a disclosure ledger</td>
+            </tr>
+            <tr>
+            <td><strong>Tier 3 retained sources</strong></td>
+            <td>Recoverable original captures under local custody</td>
+            <td>Local ground source; access is not yet capability-gated</td>
+            </tr>
+            <tr>
+            <td><strong>Graph, trace, and audit</strong></td>
+            <td>Typed relations, retrieval, evidence-route inspection, structural validation</td>
+            <td>Partial audit/provenance foundation; no runtime access audit</td>
+            </tr>
+            <tr>
+            <td><strong>Conversational debrief</strong></td>
+            <td>Human review protocol for proposed synthesis</td>
+            <td>Proposal workflow; not an authorization service</td>
+            </tr>
+            </tbody>
+            </table>
+            <h3>6.3 Open-Source: A Licensed Control Plane, Not an HCP Implementation</h3>
+            <p>HCP's own authors invite independent implementations, having stated from the outset that the protocol does not prescribe a definitive implementation and that any system satisfying its design attributes is suitable (Section 2.1)  <button class="citation-link" popovertarget="ref-1">[1]</button>. Their own reference implementation, while publicly visible on GitHub, carries no open-source license file, no tagged releases, and no visible external contributor activity beyond its original authors  <button class="citation-link" popovertarget="ref-10">[10]</button>, and none of the three publications surveyed in Section 2 describe a community governance model, a public issue tracker, or a versioned release process for their prototype. A protocol whose only reference implementation lacks a license, a release process, and community governance has not actually achieved the decentralization of control its specification calls for, no matter how carefully that specification is written.</p>
+            <p>The SOS control plane 1.6.0 is a public MIT-licensed artifact  <button class="citation-link" popovertarget="ref-5">[5]</button>. A third party can now read, run, and fork the custody-plane code. That is a narrower fact than HCP's missing licensed implementation of HCP itself: SOS is not an HCP implementation, and it is author-maintained rather than community-governed. The public tree is a portable overlay; living-instance notes are not in that tree. Independent verification of behavior remains future work. A later CIP-conformant mediation layer would require a separate, equally inspectable release. Until that layer exists, claims about independent verifiability of CIP do not apply.</p>
+            <h3>6.4 Local Memory Graphing: A Custody Graph, Not Yet a Gated Preference Graph</h3>
+            <p>The expanded working paper's Encapsulation attribute permits graph-based data representations, provided they remain portable (Section 2.2)  <button class="citation-link" popovertarget="ref-2">[2]</button>. None of the three publications' reference implementations exercise the graph option; all store preferences in a centralized PostgreSQL instance. The workshop's on-device and small-model constraints, discussed in Section 2.3, call for local, tiered execution  <button class="citation-link" popovertarget="ref-3">[3]</button>. The SOS prototype occupies part of that opening: reviewed knowledge, evidence, and sources are local, portable, and related by typed edges. It does not occupy the rest. The prototype graph is not exposed through the workshop's Interoperability Interface, is not gated by HCP Control, and is not an MCP memory server.</p>
+            <p>A concrete example that local graph-based memory already ships inside HCP's own protocol family – rather than as an analogy borrowed from an unrelated domain – comes from the Model Context Protocol's own reference server suite. The official @modelcontextprotocol/server-memory package implements "a basic implementation of persistent memory using a local knowledge graph" that "lets Claude remember information about the user across chats," storing entities, relations, and observations as a JSON graph on the local filesystem under an MIT license  <button class="citation-link" popovertarget="ref-35">[35]</button>. Because HCP already commits to MCP as its own interoperability transport (Section 5.1), this reference server demonstrates that a local, on-device knowledge graph is not merely compatible with HCP by coincidence, but is already shipping, maintained infrastructure inside the exact protocol stack HCP's reference implementation depends on. OpenJarvis's "interchangeable memory backends" primitive is a second, independent confirmation that production-grade local memory representations now run at the framework level rather than only in research demos  <button class="citation-link" popovertarget="ref-18">[18]</button>. Neither system implements the expanded paper's Encapsulation, Control, or Security semantics: the MCP reference memory server has no notion of per-category consent, revocation, or audit – any client with tool access can read or write the entire graph – and OpenJarvis's memory backends are similarly ungated with respect to scoped sharing. Both are also profile-shaped stores. CIP's remaining connective layer would be an on-device graph, built from a custody plane rather than from extracted entities, gated by scoped consent, and exposed through the workshop's Interoperability Interface rather than as an ungated shared graph. SOS is the custody plane in that sentence, not the gated interface.</p>
+            <h3>6.5 Application and Task Assistance: Proposed CIP Work, Not Present SOS Behavior</h3>
+            <p>The third HCP gap is the least resolved of the three, and the prototype does not resolve it. The expanded HCP paper specifies Read, Write, Update, and Delete access to a memory store and audit logging of who accessed what and when  <button class="citation-link" popovertarget="ref-2">[2]</button>; the workshop report names a Policy &amp; Authorization Service and an Audit &amp; Provenance Subsystem  <button class="citation-link" popovertarget="ref-3">[3]</button>. None of these publications demonstrate a downstream agent actually <em>using</em> authorized context to execute a real task – booking, drafting, purchasing, scheduling – under the protocol's consent and audit guarantees. CIP's proposed agentic layer would close this specific gap by implementing task-oriented sub-agent delegation on top of, not alongside, those authorization and audit primitives: every sub-agent dispatch and third-party tool call would read its authorized context scope from the Policy &amp; Authorization Service, execute via MCP tool calls subject to the specification's human-in-the-loop approval guidance  <button class="citation-link" popovertarget="ref-29">[29]</button> <button class="citation-link" popovertarget="ref-30">[30]</button>, and write a structured record to the Audit &amp; Provenance Subsystem. This is a deliberately conservative design choice: it treats the workshop's five-component architecture as the target interface to implement against, rather than proposing a sixth, competing component. It is also not present SOS behavior. SOS does not dispatch tools against the world, and it does not maintain a runtime disclosure ledger.</p>
+            <table class="data-table">
+            <thead>
+            <tr>
+            <th>Workshop Component  <button class="citation-link" popovertarget="ref-3">[3]</button></th>
+            <th>Specification status</th>
+            <th>SOS prototype (this edition)</th>
+            <th>Proposed CIP runtime</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><strong>Memory Store</strong></td>
+            <td>Specified; reference implementation is centralized PostgreSQL  <button class="citation-link" popovertarget="ref-1">[1]</button></td>
+            <td>Local reviewed records, evidence, and sources (Section 6.2)</td>
+            <td>Policy-enforced store over that custody plane</td>
+            </tr>
+            <tr>
+            <td><strong>Policy &amp; Authorization Service</strong></td>
+            <td>Specified conceptually; not demonstrated at delegation scale</td>
+            <td>Not built</td>
+            <td>Default-deny, purpose-limited, revocable grants (Section 6.6)</td>
+            </tr>
+            <tr>
+            <td><strong>Context Router (Memory Manager)</strong></td>
+            <td>Specified conceptually</td>
+            <td>Local retrieval for the operator; no third-party router</td>
+            <td>Minimal provenance-bearing bundles from a grant</td>
+            </tr>
+            <tr>
+            <td><strong>Audit &amp; Provenance Subsystem</strong></td>
+            <td>Specified; store-access audit described in the expanded HCP paper  <button class="citation-link" popovertarget="ref-2">[2]</button></td>
+            <td>Structural evidence-route validation; no runtime access ledger</td>
+            <td>Ledger of reads, grants, proposed writes, dispatches, and outcomes</td>
+            </tr>
+            <tr>
+            <td><strong>Interoperability Interface</strong></td>
+            <td>Specified as add/search/update/delete  <button class="citation-link" popovertarget="ref-3">[3]</button></td>
+            <td>Local CLI control plane; no MCP server</td>
+            <td>Versioned local gateway; MCP as transport, not as the store</td>
+            </tr>
+            </tbody>
+            </table>
+            <h3>6.6 Proposed CIP Runtime Data Flow</h3>
+            <p>CIP would preserve the SOS custody plane and add a mediated runtime in front of it. A request would name an actor, a purpose, and a requested scope at a local gateway. A policy service would issue or refuse a grant. A context router would turn an allowed grant into a minimal, provenance-bearing bundle drawn from the local graph and its evidence. Replaceable models and tools would receive that bundle, or authorized parameters, and would not mount the custody filesystem. Returned results would become either a Tier 2 evidence artifact or a reviewable proposal; they would not become silent memory. Durable Tier 1 mutation would remain an operator-reviewed decision.</p>
+            <p>Where a remote agent is needed, CIP could hand off via A2A without exposing the local graph's internal structure  <button class="citation-link" popovertarget="ref-34">[34]</button>. Each read, grant, proposed write, dispatch, and tool call would be recorded in the Audit &amp; Provenance Subsystem. That flow is proposed. The prototype implements only the plane the flow would be allowed to touch.</p>
+            </section>
+            <section id="privacy-security">
+            <h2>7 Privacy, Security, and Governance</h2>
+            <h3>7.1 Regulatory Implications: GDPR and the Right to Erasure</h3>
+            <p>GDPR Article 17's right to erasure and Article 20's right to portability sit in tension with LLM memory. "AI models do not store information in discrete entries," so "once personal data is integrated into a model's parameters, removal becomes nearly infeasible without costly retraining or experimental machine unlearning methods"  <button class="citation-link" popovertarget="ref-36">[36]</button>. The European Data Protection Board notes that satisfying the right to erasure "requires reversing the memorisation of personal data by the model," with options ranging from full retraining to sharded retraining and parameter-level unlearning  <button class="citation-link" popovertarget="ref-37">[37]</button>. This problem largely dissolves for a well-designed memory <em>store</em> external to model weights: production vector databases now offer metadata-filtered bulk deletion explicitly marketed to "honor Right to be Forgotten requests (GDPR) with one API or SDK call"  <button class="citation-link" popovertarget="ref-38">[38]</button>, which in principle lets an operator tag embeddings with a data_subject_id and purge by filter rather than collecting IDs by hand. In practice this guarantee is weaker than it appears: recent work on HNSW-indexed vector stores shows that soft-deleted embeddings typically remain physically present in the on-disk index, and an embedding-inversion attack can reconstruct deleted personal identifiers and structured fields directly from the untouched vectors &mdash; 25.5% of person names and 46.4% of locations on its headline dataset, and up to 100% on narrow structured fields such as age and gender &mdash; even after a delete-by-ID or delete-by-metadata call has completed  <button class="citation-link" popovertarget="ref-39">[39]</button>. A local graph store with a literal, relationally-enforced DELETE CASCADE would avoid this failure mode by construction: deleting a node removes its properties and every dependent edge in a single transaction at the storage layer, rather than leaving a soft-deleted, potentially recoverable index entry behind – a direct architectural argument for a future local-graph memory store, and the same argument the expanded paper's Security attribute rests on, made here at the level of implementation mechanics rather than design principle  <button class="citation-link" popovertarget="ref-2">[2]</button>. The SOS prototype's ordinary-file custody makes deletion inspectable as file removal and archive relocation; it does not, in this edition, claim a database-level cascade. Vector-index residue remains a reason not to treat embeddings as the system of record.</p>
+            <h3>7.2 Threat Model: Memory Poisoning</h3>
+            <p>Persistent memory expands the attack surface. The MINJA (Memory Injection Attack) demonstrates that an adversary, "without assuming that the attacker can directly modify the memory bank," can inject malicious records "by only interacting with the agent via queries and output observations," using bridging steps that later cause harmful reasoning when a victim issues a related query  <button class="citation-link" popovertarget="ref-40">[40]</button>. Because "any user [can] influence agent memory," this is a low-barrier, high-impact attack class  <button class="citation-link" popovertarget="ref-40">[40]</button>, and it is not addressed by HCP's published threat model, which stops at unauthorized preference disclosure rather than adversarial injection into the store itself  <button class="citation-link" popovertarget="ref-1">[1]</button> <button class="citation-link" popovertarget="ref-2">[2]</button>. A review-gated write path, as in the SOS debrief protocol, narrows the query-only injection surface relative to systems that extract and persist memory automatically. It does not eliminate poisoning: an operator can still be induced to accept a bad claim, and a future CIP router that injects bundles into models reintroduces a smaller, grant-shaped version of the same risk. Automatic memory writers remain the more permissive target.</p>
+            <h3>7.3 Threat Model: MCP Tool Poisoning</h3>
+            <p>Delegated reasoning imports the tool layer's vulnerabilities. Invariant Labs documents MCP Tool Poisoning as an indirect prompt injection in which "malicious instructions are embedded within MCP tool descriptions that are invisible to users but visible to AI models"; because "AI models see the complete tool descriptions ...while users typically only see simplified versions in their UI," the model reads attacker instructions the human never sees  <button class="citation-link" popovertarget="ref-41">[41]</button>. Concrete 2025 CVEs illustrate the class: CurXecute (CVE-2025-54135, CVSSv3 8.5), a remote-code-execution flaw in the Cursor editor reachable via prompt injection when an MCP-connected tool is used to rewrite mcp.json, and MCPoison (CVE-2025-54136, CVSSv3 7.2), which abuses trust-by-name rather than trust-by-content in approved MCP server configurations to smuggle in silently-executed commands  <button class="citation-link" popovertarget="ref-42">[42]</button>. JFrog's disclosure of CVE-2025-6515 ("Prompt Hijacking") showed session-ID reuse could cause a model to "present the user with the attacker's intended response, while dropping the response for the user's original request"  <button class="citation-link" popovertarget="ref-43">[43]</button>. Recommended mitigations include version and hash pinning of MCP servers and tools, cross-server dataflow boundaries, and refusing to auto-approve tool calls  <button class="citation-link" popovertarget="ref-41">[41]</button>. This threat class belongs to CIP's proposed agentic layer (Section 6.5), which would execute third-party MCP tools on the user's behalf. It is not a present SOS attack surface, because SOS does not presently expose an MCP tool host. It is also not addressed by any of the three HCP publications, whose threat model does not extend past the memory store's own access controls.</p>
+            </section>
+            <section id="comparative-positioning">
+            <h2>8 Comparative Positioning</h2>
+            <p>The comparison below bounds the design space with six entries. HCP's own protocol family, not Sovereign OS, specifies interoperability and audit as named requirements. SOS's present differentiation is confined to a published local custody and provenance plane. CIP's remaining differentiation is the still-unbuilt combination of a policy boundary, a context router, mediated interoperability, and audited delegation in front of such a plane.</p>
+            <table class="data-table">
+            <thead>
+            <tr>
+            <th>System</th>
+            <th>Protocol Status</th>
+            <th>Open-Source?</th>
+            <th>Local Memory Graph?</th>
+            <th>Demonstrated Agentic Delegation?</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td><strong>HCP (2025 preprint / Dec 2025 working paper)</strong></td>
+            <td>Specifies interoperability, encapsulation, control, security  <button class="citation-link" popovertarget="ref-1">[1]</button> <button class="citation-link" popovertarget="ref-2">[2]</button></td>
+            <td>No – public repo, unlicensed, no releases  <button class="citation-link" popovertarget="ref-10">[10]</button></td>
+            <td>No – centralized PostgreSQL</td>
+            <td>Gestured at (MCP/A2A mentioned), not demonstrated</td>
+            </tr>
+            <tr>
+            <td><strong>Global Memory Workshop Architecture</strong></td>
+            <td>Specifies five-component reference architecture  <button class="citation-link" popovertarget="ref-3">[3]</button></td>
+            <td>No – report only, no codebase</td>
+            <td>No – calls for it as future work</td>
+            <td>No – specification only</td>
+            </tr>
+            <tr>
+            <td><strong>HCP-Demo (reference impl.)</strong></td>
+            <td>Illustrates HCP's own consent-scoped model; narrative walkthrough, not a deployable backend  <button class="citation-link" popovertarget="ref-10">[10]</button></td>
+            <td>No – public repo, no license file, no tagged releases  <button class="citation-link" popovertarget="ref-10">[10]</button></td>
+            <td>No – Next.js narrative app, no graph store</td>
+            <td>No – no delegation layer</td>
+            </tr>
+            <tr>
+            <td><strong>OpenJarvis</strong></td>
+            <td>No relation to HCP; general-purpose local-agent framework  <button class="citation-link" popovertarget="ref-18">[18]</button></td>
+            <td><strong>Yes – Apache 2.0, public releases</strong>  <button class="citation-link" popovertarget="ref-18">[18]</button></td>
+            <td>No HCP-compliant graph – interchangeable, ungated memory backends  <button class="citation-link" popovertarget="ref-18">[18]</button></td>
+            <td>Yes – on-device agent + MCP tool use, benchmark-evaluated  <button class="citation-link" popovertarget="ref-18">[18]</button></td>
+            </tr>
+            <tr>
+            <td><strong>SOS prototype (this edition)</strong></td>
+            <td>Custody and provenance plane; not CIP, not HCP, not MCP  <button class="citation-link" popovertarget="ref-5">[5]</button></td>
+            <td><strong>Yes – MIT, public control plane 1.6.0</strong>; author-maintained, not community-governed</td>
+            <td><strong>Working – local typed records and evidence routes, not a gated graph API</strong></td>
+            <td>No – review-gated authoring, not delegated tool execution</td>
+            </tr>
+            <tr>
+            <td><strong>CIP (proposed)</strong></td>
+            <td>Edge profile for mediated access to a custody plane; layered over HCP and MCP</td>
+            <td><strong>Planned – permissive license and public codebase</strong></td>
+            <td>Planned gated interface over a plane like SOS</td>
+            <td><strong>Planned – sub-agent and MCP tool execution under protocol audit</strong></td>
+            </tr>
+            </tbody>
+            </table>
+            <p>HCP-Demo demonstrates the consent-scoped preference model as narrative, not as a licensed, deployable backend, and implements neither a local memory graph nor agentic task delegation  <button class="citation-link" popovertarget="ref-10">[10]</button>. OpenJarvis demonstrates that a fully local, open-source agentic stack with interchangeable memory backends and MCP tool adapters can already match near-frontier cloud accuracy on real benchmarks at a fraction of the cost and latency  <button class="citation-link" popovertarget="ref-18">[18]</button> – but it implements no consent, revocation, audit, or scoped-sharing semantics over that memory; any tool with access reads the whole store. Neither is a competitor to the SOS prototype's narrower custody claim, and neither is CIP. HCP-Demo has the protocol's sharing semantics but not local custody of source, observation, and accepted claim. OpenJarvis has local agentic execution but not those semantics and not a review-gated custody plane. The unclaimed remainder – not local AI in general, and not agentic delegation in general – is a mediation layer that can disclose provenance-bearing context without turning the store into an ungated profile. That remainder is CIP. It is not a claim that SOS has already built the HCP-MCP stack.</p>
+            </section>
+            <section id="challenges-future">
+            <h2>9 Challenges and Future Directions</h2>
+            <p>Several open problems remain within this scope. <strong>Memory consistency and forgetting</strong> are unresolved in general: bi-temporal graphs with edge invalidation  <button class="citation-link" popovertarget="ref-15">[15]</button> handle changing facts more gracefully than flat RAG, but no consensus exists on when an agent should proactively forget, and reflection weights in memory-stream architectures remain hand-tuned rather than learned  <button class="citation-link" popovertarget="ref-14">[14]</button>. <strong>Benchmark reliability</strong> is a standing concern: the wide divergence between vendor-published memory-system accuracy figures, including a competing vendor's own unfavorable re-measurement of its rivals  <button class="citation-link" popovertarget="ref-17">[17]</button>, means any later evaluation of SOS or CIP against LOCOMO, Deep Memory Retrieval, or LongMemEval must be run by a disinterested party rather than cited from any vendor's claims, and none of these benchmarks yet measure delegation-audit completeness, evidence-route inspectability, or poisoning resistance specifically  <button class="citation-link" popovertarget="ref-40">[40]</button> <button class="citation-link" popovertarget="ref-44">[44]</button>. <strong>Cross-device and cross-vendor interoperability</strong> remains weak industry-wide despite HCP's specification work: no fetched vendor source documents a full, standards-based export of its memory store, and portability today is largely limited to Claude's import of other chatbots' exports  <button class="citation-link" popovertarget="ref-25">[25]</button>. <strong>On-device model capability</strong> is the workshop's own identified constraint: distillation, hybrid small-model/deterministic pipelines, and tiered execution are called for but not yet demonstrated at the fidelity cloud-hosted models achieve  <button class="citation-link" popovertarget="ref-3">[3]</button>. The SOS prototype does not inherit a local-inference requirement; CIP's proposed on-device mediation layer would.</p>
+            <p>On institutional trajectory, the most consequential recent development is the speed at which the HCP research program has moved from a 2025 multi-author preprint spanning MIT, Persona Labs, Oxford, OpenMined, and Microsoft Research to a December 2025 Stanford working paper and a March 2026 workshop report with a named five-component architecture  <button class="citation-link" popovertarget="ref-1">[1]</button> <button class="citation-link" popovertarget="ref-2">[2]</button> <button class="citation-link" popovertarget="ref-3">[3]</button>. This is strong evidence that the protocol layer this paper's founding sovereignty argument depends on is no longer a speculative proposal but an active, multi-institution standardization effort, alongside MCP's continued adoption across OpenAI  <button class="citation-link" popovertarget="ref-31">[31]</button> and Google DeepMind  <button class="citation-link" popovertarget="ref-32">[32]</button> and A2A's transfer to the Linux Foundation  <button class="citation-link" popovertarget="ref-45">[45]</button>. The Sovereign OS Project's role in that trajectory is not to originate those protocols. It is to keep the stored object from collapsing into a preference profile, to show that a local custody plane can be published as ordinary files, and to specify CIP as the still-unbuilt gate in front of that plane.</p>
+            </section>
+            <section id="conclusion">
+            <h2>10 Conclusion</h2>
+            <p>Personal AI memory is the newest round of a decades-old cycle between centralized and personally controlled computing. The Human Context Protocol research program – a 2025 preprint, a December 2025 expanded working paper with named store actions and audit language, and a March 2026 workshop report decomposing a user-governed context layer into a five-component architecture – has moved the reclamation argument from philosophy to engineering with unusual speed. This paper contributes the Context Inversion Protocol as an edge-first implementation profile for mediated access to persistent human context, layered over that existing stack rather than offered as a second Human Context Protocol.</p>
+            <p>Version 0.2.0 changes the research claim. This edition reports the SOS control plane 1.6.0 as a published local custody and provenance prototype: captured reality, deterministic observation, and accepted knowledge remain distinct, inspectable, and revisable  <button class="citation-link" popovertarget="ref-5">[5]</button>. That is an author-reported existence claim, not an independently verified result. It does not claim the full policy, context-routing, delegated-action, and audit runtime envisioned by CIP. That distinction is the paper's credibility condition. HCP remains the protocol-level language this paper uses for scoped disclosure; MCP remains the transport this paper uses for a future gateway; SOS is a published control plane showing that durable context need not become a vendor-owned, or even user-owned, personality profile that silently decides what an AI knows. Independent verification of that prototype remains future work, consistent with the standard applied to other sovereignty claims in Section 4.2.</p>
+            </section>
+            <section id="references">
+            <h2>11 References</h2>
+            <ol class="references-list">
+            <li id="ref-list-1">Shah, A. V., South, T., Evans, T., Kirk, H. R., Trask, A., Weyl, E. G., &amp; Bakker, M. A. (2025). Robust AI Personalization via The Human Context Protocol. Preprint <a href="https://hcp.loyalagents.org/hcp-paper.pdf" target="_blank" rel="noopener noreferrer">https://hcp.loyalagents.org/hcp-paper.pdf</a></li>
+            <li id="ref-list-2">Shah, A. V., South, T., Evans, T., Kirk, H. R., Pei, J., Trask, A., Weyl, E. G., &amp; Bakker, M. A. (2025, December 18). Robust AI Personalization Controls: The Human Context Protocol. Stanford Digital Economy Lab working paper <a href="https://digitaleconomy.stanford.edu/publication/robust-ai-personalization-controls-the-human-context-protocol/" target="_blank" rel="noopener noreferrer">https://digitaleconomy.stanford.edu/publication/robust-ai-personalization-controls-the-human-context-protocol/</a></li>
+            <li id="ref-list-3">Global Memory Workshop. (2026, March). The Future of Personal AI: Portable and Persistent Personal Memory through a Unified Human Context Protocol. Final report, March 11--12, 2026. Stanford Digital Economy Lab <a href="https://digitaleconomy.stanford.edu/app/uploads/2026/06/GlobalMemoryWorkshop.pdf" target="_blank" rel="noopener noreferrer">https://digitaleconomy.stanford.edu/app/uploads/2026/06/GlobalMemoryWorkshop.pdf</a></li>
+            <li id="ref-list-4">Anthropic (2024). Introducing the Model Context Protocol. <a href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/news/model-context-protocol</a></li>
+            <li id="ref-list-5">Potter, R. E. (2026). Sovereign OS Control Plane (Version 1.6.0) [Computer software]. MIT License <a href="https://github.com/robertpotter-dev/sos-control-plane" target="_blank" rel="noopener noreferrer">https://github.com/robertpotter-dev/sos-control-plane</a></li>
+            <li id="ref-list-6">BBC News (2024). Tim Berners-Lee: I invented the web. Here&#x27;s how we take it back. <a href="https://www.bbc.com/news/business-68286395" target="_blank" rel="noopener noreferrer">https://www.bbc.com/news/business-68286395</a></li>
+            <li id="ref-list-7">Solid Project. About Solid. <a href="https://solidproject.org/about" target="_blank" rel="noopener noreferrer">https://solidproject.org/about</a></li>
+            <li id="ref-list-8">Inrupt. Key Concepts. <a href="https://docs.inrupt.com/getting-started/key-concepts" target="_blank" rel="noopener noreferrer">https://docs.inrupt.com/getting-started/key-concepts</a></li>
+            <li id="ref-list-9">Schneier, B. (2020). Inrupt: Tim Berners-Lee&#x27;s Solid. Schneier on Security. <a href="https://www.schneier.com/blog/archives/2020/02/inrupt_tim_bern.html" target="_blank" rel="noopener noreferrer">https://www.schneier.com/blog/archives/2020/02/inrupt_tim_bern.html</a></li>
+            <li id="ref-list-10">South, T., et al. HCP Demo. GitHub <a href="https://github.com/tobinsouth/hcp-demo" target="_blank" rel="noopener noreferrer">https://github.com/tobinsouth/hcp-demo</a></li>
+            <li id="ref-list-11">Packer, C., et al. (2023). MemGPT: Towards LLMs as Operating Systems. arXiv:2310.08560. <a href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2310.08560</a></li>
+            <li id="ref-list-12">Chhikara, P., et al. (2025). Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory. arXiv:2504.19413. <a href="https://arxiv.org/abs/2504.19413" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2504.19413</a></li>
+            <li id="ref-list-13">Anthropic (2025). Effective Context Engineering for AI Agents. <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents</a></li>
+            <li id="ref-list-14">Park, J. S., et al. (2023). Generative Agents: Interactive Simulacra of Human Behavior. arXiv:2304.03442. <a href="https://arxiv.org/abs/2304.03442" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2304.03442</a></li>
+            <li id="ref-list-15">Rasmussen, P., et al. (2025). Zep: A Temporal Knowledge Graph Architecture for Agent Memory. arXiv:2501.13956. <a href="https://arxiv.org/abs/2501.13956" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2501.13956</a></li>
+            <li id="ref-list-16">Zep. Research Benchmarks. <a href="https://www.getzep.com/research/" target="_blank" rel="noopener noreferrer">https://www.getzep.com/research/</a></li>
+            <li id="ref-list-17">Vectorize (2026). Mem0 vs Zep: AI Agent Memory Compared. <a href="https://vectorize.io/articles/mem0-vs-zep" target="_blank" rel="noopener noreferrer">https://vectorize.io/articles/mem0-vs-zep</a></li>
+            <li id="ref-list-18">Saad-Falcon, J., Narayan, A., Manihani, R., Bhathal, T., Shandilya, H., Akengin, H. O., Bo, G., Park, A., Hart, M., Costello, C., Li, C., Ré, C., &amp; Mirhoseini, A. (2026). OpenJarvis: Personal AI, On Personal Devices. Stanford Hazy Research / Scaling Intelligence Lab. arXiv:2605.17172. <a href="https://arxiv.org/abs/2605.17172" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2605.17172</a></li>
+            <li id="ref-list-19">Apple (2024). Platforms State of the Union -- WWDC24. <a href="https://developer.apple.com/videos/play/wwdc2024/102/" target="_blank" rel="noopener noreferrer">https://developer.apple.com/videos/play/wwdc2024/102/</a></li>
+            <li id="ref-list-20">Apple Support. Apple Intelligence and Privacy. <a href="https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/ios" target="_blank" rel="noopener noreferrer">https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/ios</a></li>
+            <li id="ref-list-21">Dittmar, Y., Stephan, M. J., Völkl, T., Hollick, M., &amp; Classen, J. (2026). Unlocking Apple&#x27;s Private Cloud Compute: An Analysis of Privacy-Preserving Artificial Intelligence. arXiv:2605.24239. <a href="https://arxiv.org/abs/2605.24239" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2605.24239</a></li>
+            <li id="ref-list-22">Khemani, S. How Gemini&#x27;s Memory Works. <a href="https://www.shloked.com/writing/gemini-memory" target="_blank" rel="noopener noreferrer">https://www.shloked.com/writing/gemini-memory</a></li>
+            <li id="ref-list-23">OpenAI Help Center. How do I view or delete a memory? <a href="https://help.openai.com/en/articles/8983145-how-do-i-view-or-delete-a-memory" target="_blank" rel="noopener noreferrer">https://help.openai.com/en/articles/8983145-how-do-i-view-or-delete-a-memory</a></li>
+            <li id="ref-list-24">Anthropic. Use Claude&#x27;s chat search and memory to build on previous context. <a href="https://support.anthropic.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener noreferrer">https://support.anthropic.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context</a></li>
+            <li id="ref-list-25">Anthropic. Import and export your memory from Claude. <a href="https://support.anthropic.com/en/articles/12123587-import-and-export-your-memory-from-claude" target="_blank" rel="noopener noreferrer">https://support.anthropic.com/en/articles/12123587-import-and-export-your-memory-from-claude</a></li>
+            <li id="ref-list-26">Google. Temporary Chats and Privacy Controls in Gemini. <a href="https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/" target="_blank" rel="noopener noreferrer">https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/</a></li>
+            <li id="ref-list-27">Microsoft Support. Retrace Your Steps with Recall. <a href="https://support.microsoft.com/en-us/windows/ai/ai-features/retrace-your-steps-with-recall" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/en-us/windows/ai/ai-features/retrace-your-steps-with-recall</a></li>
+            <li id="ref-list-28">Perplexity Help Center. Memory. <a href="https://www.perplexity.ai/help-center/en/articles/10968016-memory" target="_blank" rel="noopener noreferrer">https://www.perplexity.ai/help-center/en/articles/10968016-memory</a></li>
+            <li id="ref-list-29">Model Context Protocol. (2025--2026). Specification <a href="https://modelcontextprotocol.io/specification/" target="_blank" rel="noopener noreferrer">https://modelcontextprotocol.io/specification/</a></li>
+            <li id="ref-list-30">SAP Insiders. Model Context Protocol (MCP): A Deep Dive. <a href="https://sapinsiders.org/posts/model-context-protocol-mcp-deep-dive" target="_blank" rel="noopener noreferrer">https://sapinsiders.org/posts/model-context-protocol-mcp-deep-dive</a></li>
+            <li id="ref-list-31">TechCrunch (2025). OpenAI adopts rival Anthropic&#x27;s standard for connecting AI models to data. <a href="https://techcrunch.com/2025/03/26/openai-adopts-rival-anthropics-standard-for-connecting-ai-models-to-data/" target="_blank" rel="noopener noreferrer">https://techcrunch.com/2025/03/26/openai-adopts-rival-anthropics-standard-for-connecting-ai-models-to-data/</a></li>
+            <li id="ref-list-32">Google (2025). Gemini 2.5: Our most intelligent models are getting even better. <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-updates-io-2025/" target="_blank" rel="noopener noreferrer">https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-updates-io-2025/</a></li>
+            <li id="ref-list-33">Google Developers Blog (2025). A2A: A New Era of Agent Interoperability. <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</a></li>
+            <li id="ref-list-34">A2A Project. Agent2Agent Protocol. GitHub. <a href="https://github.com/a2aproject/A2A" target="_blank" rel="noopener noreferrer">https://github.com/a2aproject/A2A</a></li>
+            <li id="ref-list-35">Model Context Protocol Contributors. Knowledge Graph Memory Server. GitHub <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/memory" target="_blank" rel="noopener noreferrer">https://github.com/modelcontextprotocol/servers/tree/main/src/memory</a></li>
+            <li id="ref-list-36">Tech Policy Press. The Right to Be Forgotten Is Dead: Data Lives Forever in AI. <a href="https://techpolicy.press/the-right-to-be-forgotten-is-dead-data-lives-forever-in-ai" target="_blank" rel="noopener noreferrer">https://techpolicy.press/the-right-to-be-forgotten-is-dead-data-lives-forever-in-ai</a></li>
+            <li id="ref-list-37">European Data Protection Board (2025). AI: Effective Implementation of Data Subjects&#x27; Rights. <a href="https://www.edpb.europa.eu/system/files/2025-01/d2-ai-effective-implementation-of-data-subjects-rights_en.pdf" target="_blank" rel="noopener noreferrer">https://www.edpb.europa.eu/system/files/2025-01/d2-ai-effective-implementation-of-data-subjects-rights_en.pdf</a></li>
+            <li id="ref-list-38">Wang-Tomic, L., Johnson, G. (2025). New Bulk Data Operations: Update, Delete, and Fetch by Metadata. Pinecone. <a href="https://www.pinecone.io/blog/update-delete-and-fetch-by-metadata/" target="_blank" rel="noopener noreferrer">https://www.pinecone.io/blog/update-delete-and-fetch-by-metadata/</a></li>
+            <li id="ref-list-39">Chakraborttii, C., Alvarado, J.G., Abdulofizova, S., Dwivedi, S. (2026). Ghost Vectors: Soft-Deleted Embeddings Remain Reconstructible in HNSW Vector Databases. arXiv:2606.18497. <a href="https://arxiv.org/abs/2606.18497" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2606.18497</a></li>
+            <li id="ref-list-40">Dong, Y., et al. (2025). Memory Injection Attacks on LLM Agents via Query-Only Interaction. arXiv:2503.03704. <a href="https://arxiv.org/abs/2503.03704" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2503.03704</a></li>
+            <li id="ref-list-41">Invariant Labs. MCP Security Notification: Tool Poisoning Attacks. <a href="https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks" target="_blank" rel="noopener noreferrer">https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks</a></li>
+            <li id="ref-list-42">Narang, S. (2025). FAQ: CVE-2025-54135 and CVE-2025-54136 Vulnerabilities in Cursor (CurXecute and MCPoison). Tenable. <a href="https://www.tenable.com/blog/faq-cve-2025-54135-cve-2025-54136-vulnerabilities-in-cursor-curxecute-mcpoison" target="_blank" rel="noopener noreferrer">https://www.tenable.com/blog/faq-cve-2025-54135-cve-2025-54136-vulnerabilities-in-cursor-curxecute-mcpoison</a></li>
+            <li id="ref-list-43">JFrog (2025). MCP Prompt Hijacking Vulnerability. <a href="https://jfrog.com/blog/mcp-prompt-hijacking-vulnerability/" target="_blank" rel="noopener noreferrer">https://jfrog.com/blog/mcp-prompt-hijacking-vulnerability/</a></li>
+            <li id="ref-list-44">OWASP. MCP Tool Poisoning. <a href="https://owasp.org/www-community/attacks/MCP_Tool_Poisoning" target="_blank" rel="noopener noreferrer">https://owasp.org/www-community/attacks/MCP_Tool_Poisoning</a></li>
+            <li id="ref-list-45">Google Cloud Blog. Agent2Agent Protocol Is Getting an Upgrade. <a href="https://cloud.google.com/blog/products/ai-machine-learning/agent2agent-protocol-is-getting-an-upgrade" target="_blank" rel="noopener noreferrer">https://cloud.google.com/blog/products/ai-machine-learning/agent2agent-protocol-is-getting-an-upgrade</a></li>
+            </ol>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popover References -->
+    <div id="ref-1" popover>
+      <button class="popover-close" commandfor="ref-1" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [1]</span>
+      <div class="popover-ref-body">
+        Shah, A. V., South, T., Evans, T., Kirk, H. R., Trask, A., Weyl, E. G., &amp; Bakker, M. A. (2025). Robust AI Personalization via The Human Context Protocol. Preprint
+        <a href="https://hcp.loyalagents.org/hcp-paper.pdf" target="_blank" rel="noopener noreferrer">https://hcp.loyalagents.org/hcp-paper.pdf</a>
+      </div>
+    </div>
+    <div id="ref-2" popover>
+      <button class="popover-close" commandfor="ref-2" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [2]</span>
+      <div class="popover-ref-body">
+        Shah, A. V., South, T., Evans, T., Kirk, H. R., Pei, J., Trask, A., Weyl, E. G., &amp; Bakker, M. A. (2025, December 18). Robust AI Personalization Controls: The Human Context Protocol. Stanford Digital Economy Lab working paper
+        <a href="https://digitaleconomy.stanford.edu/publication/robust-ai-personalization-controls-the-human-context-protocol/" target="_blank" rel="noopener noreferrer">https://digitaleconomy.stanford.edu/publication/robust-ai-personalization-controls-the-human-context-protocol/</a>
+      </div>
+    </div>
+    <div id="ref-3" popover>
+      <button class="popover-close" commandfor="ref-3" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [3]</span>
+      <div class="popover-ref-body">
+        Global Memory Workshop. (2026, March). The Future of Personal AI: Portable and Persistent Personal Memory through a Unified Human Context Protocol. Final report, March 11--12, 2026. Stanford Digital Economy Lab
+        <a href="https://digitaleconomy.stanford.edu/app/uploads/2026/06/GlobalMemoryWorkshop.pdf" target="_blank" rel="noopener noreferrer">https://digitaleconomy.stanford.edu/app/uploads/2026/06/GlobalMemoryWorkshop.pdf</a>
+      </div>
+    </div>
+    <div id="ref-4" popover>
+      <button class="popover-close" commandfor="ref-4" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [4]</span>
+      <div class="popover-ref-body">
+        Anthropic (2024). Introducing the Model Context Protocol.
+        <a href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/news/model-context-protocol</a>
+      </div>
+    </div>
+    <div id="ref-5" popover>
+      <button class="popover-close" commandfor="ref-5" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [5]</span>
+      <div class="popover-ref-body">
+        Potter, R. E. (2026). Sovereign OS Control Plane (Version 1.6.0) [Computer software]. MIT License
+        <a href="https://github.com/robertpotter-dev/sos-control-plane" target="_blank" rel="noopener noreferrer">https://github.com/robertpotter-dev/sos-control-plane</a>
+      </div>
+    </div>
+    <div id="ref-6" popover>
+      <button class="popover-close" commandfor="ref-6" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [6]</span>
+      <div class="popover-ref-body">
+        BBC News (2024). Tim Berners-Lee: I invented the web. Here&#x27;s how we take it back.
+        <a href="https://www.bbc.com/news/business-68286395" target="_blank" rel="noopener noreferrer">https://www.bbc.com/news/business-68286395</a>
+      </div>
+    </div>
+    <div id="ref-7" popover>
+      <button class="popover-close" commandfor="ref-7" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [7]</span>
+      <div class="popover-ref-body">
+        Solid Project. About Solid.
+        <a href="https://solidproject.org/about" target="_blank" rel="noopener noreferrer">https://solidproject.org/about</a>
+      </div>
+    </div>
+    <div id="ref-8" popover>
+      <button class="popover-close" commandfor="ref-8" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [8]</span>
+      <div class="popover-ref-body">
+        Inrupt. Key Concepts.
+        <a href="https://docs.inrupt.com/getting-started/key-concepts" target="_blank" rel="noopener noreferrer">https://docs.inrupt.com/getting-started/key-concepts</a>
+      </div>
+    </div>
+    <div id="ref-9" popover>
+      <button class="popover-close" commandfor="ref-9" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [9]</span>
+      <div class="popover-ref-body">
+        Schneier, B. (2020). Inrupt: Tim Berners-Lee&#x27;s Solid. Schneier on Security.
+        <a href="https://www.schneier.com/blog/archives/2020/02/inrupt_tim_bern.html" target="_blank" rel="noopener noreferrer">https://www.schneier.com/blog/archives/2020/02/inrupt_tim_bern.html</a>
+      </div>
+    </div>
+    <div id="ref-10" popover>
+      <button class="popover-close" commandfor="ref-10" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [10]</span>
+      <div class="popover-ref-body">
+        South, T., et al. HCP Demo. GitHub
+        <a href="https://github.com/tobinsouth/hcp-demo" target="_blank" rel="noopener noreferrer">https://github.com/tobinsouth/hcp-demo</a>
+      </div>
+    </div>
+    <div id="ref-11" popover>
+      <button class="popover-close" commandfor="ref-11" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [11]</span>
+      <div class="popover-ref-body">
+        Packer, C., et al. (2023). MemGPT: Towards LLMs as Operating Systems. arXiv:2310.08560.
+        <a href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2310.08560</a>
+      </div>
+    </div>
+    <div id="ref-12" popover>
+      <button class="popover-close" commandfor="ref-12" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [12]</span>
+      <div class="popover-ref-body">
+        Chhikara, P., et al. (2025). Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory. arXiv:2504.19413.
+        <a href="https://arxiv.org/abs/2504.19413" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2504.19413</a>
+      </div>
+    </div>
+    <div id="ref-13" popover>
+      <button class="popover-close" commandfor="ref-13" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [13]</span>
+      <div class="popover-ref-body">
+        Anthropic (2025). Effective Context Engineering for AI Agents.
+        <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents</a>
+      </div>
+    </div>
+    <div id="ref-14" popover>
+      <button class="popover-close" commandfor="ref-14" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [14]</span>
+      <div class="popover-ref-body">
+        Park, J. S., et al. (2023). Generative Agents: Interactive Simulacra of Human Behavior. arXiv:2304.03442.
+        <a href="https://arxiv.org/abs/2304.03442" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2304.03442</a>
+      </div>
+    </div>
+    <div id="ref-15" popover>
+      <button class="popover-close" commandfor="ref-15" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [15]</span>
+      <div class="popover-ref-body">
+        Rasmussen, P., et al. (2025). Zep: A Temporal Knowledge Graph Architecture for Agent Memory. arXiv:2501.13956.
+        <a href="https://arxiv.org/abs/2501.13956" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2501.13956</a>
+      </div>
+    </div>
+    <div id="ref-16" popover>
+      <button class="popover-close" commandfor="ref-16" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [16]</span>
+      <div class="popover-ref-body">
+        Zep. Research Benchmarks.
+        <a href="https://www.getzep.com/research/" target="_blank" rel="noopener noreferrer">https://www.getzep.com/research/</a>
+      </div>
+    </div>
+    <div id="ref-17" popover>
+      <button class="popover-close" commandfor="ref-17" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [17]</span>
+      <div class="popover-ref-body">
+        Vectorize (2026). Mem0 vs Zep: AI Agent Memory Compared.
+        <a href="https://vectorize.io/articles/mem0-vs-zep" target="_blank" rel="noopener noreferrer">https://vectorize.io/articles/mem0-vs-zep</a>
+      </div>
+    </div>
+    <div id="ref-18" popover>
+      <button class="popover-close" commandfor="ref-18" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [18]</span>
+      <div class="popover-ref-body">
+        Saad-Falcon, J., Narayan, A., Manihani, R., Bhathal, T., Shandilya, H., Akengin, H. O., Bo, G., Park, A., Hart, M., Costello, C., Li, C., Ré, C., &amp; Mirhoseini, A. (2026). OpenJarvis: Personal AI, On Personal Devices. Stanford Hazy Research / Scaling Intelligence Lab. arXiv:2605.17172.
+        <a href="https://arxiv.org/abs/2605.17172" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2605.17172</a>
+      </div>
+    </div>
+    <div id="ref-19" popover>
+      <button class="popover-close" commandfor="ref-19" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [19]</span>
+      <div class="popover-ref-body">
+        Apple (2024). Platforms State of the Union -- WWDC24.
+        <a href="https://developer.apple.com/videos/play/wwdc2024/102/" target="_blank" rel="noopener noreferrer">https://developer.apple.com/videos/play/wwdc2024/102/</a>
+      </div>
+    </div>
+    <div id="ref-20" popover>
+      <button class="popover-close" commandfor="ref-20" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [20]</span>
+      <div class="popover-ref-body">
+        Apple Support. Apple Intelligence and Privacy.
+        <a href="https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/ios" target="_blank" rel="noopener noreferrer">https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/ios</a>
+      </div>
+    </div>
+    <div id="ref-21" popover>
+      <button class="popover-close" commandfor="ref-21" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [21]</span>
+      <div class="popover-ref-body">
+        Dittmar, Y., Stephan, M. J., Völkl, T., Hollick, M., &amp; Classen, J. (2026). Unlocking Apple&#x27;s Private Cloud Compute: An Analysis of Privacy-Preserving Artificial Intelligence. arXiv:2605.24239.
+        <a href="https://arxiv.org/abs/2605.24239" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2605.24239</a>
+      </div>
+    </div>
+    <div id="ref-22" popover>
+      <button class="popover-close" commandfor="ref-22" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [22]</span>
+      <div class="popover-ref-body">
+        Khemani, S. How Gemini&#x27;s Memory Works.
+        <a href="https://www.shloked.com/writing/gemini-memory" target="_blank" rel="noopener noreferrer">https://www.shloked.com/writing/gemini-memory</a>
+      </div>
+    </div>
+    <div id="ref-23" popover>
+      <button class="popover-close" commandfor="ref-23" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [23]</span>
+      <div class="popover-ref-body">
+        OpenAI Help Center. How do I view or delete a memory?
+        <a href="https://help.openai.com/en/articles/8983145-how-do-i-view-or-delete-a-memory" target="_blank" rel="noopener noreferrer">https://help.openai.com/en/articles/8983145-how-do-i-view-or-delete-a-memory</a>
+      </div>
+    </div>
+    <div id="ref-24" popover>
+      <button class="popover-close" commandfor="ref-24" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [24]</span>
+      <div class="popover-ref-body">
+        Anthropic. Use Claude&#x27;s chat search and memory to build on previous context.
+        <a href="https://support.anthropic.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener noreferrer">https://support.anthropic.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context</a>
+      </div>
+    </div>
+    <div id="ref-25" popover>
+      <button class="popover-close" commandfor="ref-25" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [25]</span>
+      <div class="popover-ref-body">
+        Anthropic. Import and export your memory from Claude.
+        <a href="https://support.anthropic.com/en/articles/12123587-import-and-export-your-memory-from-claude" target="_blank" rel="noopener noreferrer">https://support.anthropic.com/en/articles/12123587-import-and-export-your-memory-from-claude</a>
+      </div>
+    </div>
+    <div id="ref-26" popover>
+      <button class="popover-close" commandfor="ref-26" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [26]</span>
+      <div class="popover-ref-body">
+        Google. Temporary Chats and Privacy Controls in Gemini.
+        <a href="https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/" target="_blank" rel="noopener noreferrer">https://blog.google/products-and-platforms/products/gemini/temporary-chats-privacy-controls/</a>
+      </div>
+    </div>
+    <div id="ref-27" popover>
+      <button class="popover-close" commandfor="ref-27" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [27]</span>
+      <div class="popover-ref-body">
+        Microsoft Support. Retrace Your Steps with Recall.
+        <a href="https://support.microsoft.com/en-us/windows/ai/ai-features/retrace-your-steps-with-recall" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/en-us/windows/ai/ai-features/retrace-your-steps-with-recall</a>
+      </div>
+    </div>
+    <div id="ref-28" popover>
+      <button class="popover-close" commandfor="ref-28" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [28]</span>
+      <div class="popover-ref-body">
+        Perplexity Help Center. Memory.
+        <a href="https://www.perplexity.ai/help-center/en/articles/10968016-memory" target="_blank" rel="noopener noreferrer">https://www.perplexity.ai/help-center/en/articles/10968016-memory</a>
+      </div>
+    </div>
+    <div id="ref-29" popover>
+      <button class="popover-close" commandfor="ref-29" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [29]</span>
+      <div class="popover-ref-body">
+        Model Context Protocol. (2025--2026). Specification
+        <a href="https://modelcontextprotocol.io/specification/" target="_blank" rel="noopener noreferrer">https://modelcontextprotocol.io/specification/</a>
+      </div>
+    </div>
+    <div id="ref-30" popover>
+      <button class="popover-close" commandfor="ref-30" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [30]</span>
+      <div class="popover-ref-body">
+        SAP Insiders. Model Context Protocol (MCP): A Deep Dive.
+        <a href="https://sapinsiders.org/posts/model-context-protocol-mcp-deep-dive" target="_blank" rel="noopener noreferrer">https://sapinsiders.org/posts/model-context-protocol-mcp-deep-dive</a>
+      </div>
+    </div>
+    <div id="ref-31" popover>
+      <button class="popover-close" commandfor="ref-31" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [31]</span>
+      <div class="popover-ref-body">
+        TechCrunch (2025). OpenAI adopts rival Anthropic&#x27;s standard for connecting AI models to data.
+        <a href="https://techcrunch.com/2025/03/26/openai-adopts-rival-anthropics-standard-for-connecting-ai-models-to-data/" target="_blank" rel="noopener noreferrer">https://techcrunch.com/2025/03/26/openai-adopts-rival-anthropics-standard-for-connecting-ai-models-to-data/</a>
+      </div>
+    </div>
+    <div id="ref-32" popover>
+      <button class="popover-close" commandfor="ref-32" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [32]</span>
+      <div class="popover-ref-body">
+        Google (2025). Gemini 2.5: Our most intelligent models are getting even better.
+        <a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-updates-io-2025/" target="_blank" rel="noopener noreferrer">https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-updates-io-2025/</a>
+      </div>
+    </div>
+    <div id="ref-33" popover>
+      <button class="popover-close" commandfor="ref-33" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [33]</span>
+      <div class="popover-ref-body">
+        Google Developers Blog (2025). A2A: A New Era of Agent Interoperability.
+        <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</a>
+      </div>
+    </div>
+    <div id="ref-34" popover>
+      <button class="popover-close" commandfor="ref-34" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [34]</span>
+      <div class="popover-ref-body">
+        A2A Project. Agent2Agent Protocol. GitHub.
+        <a href="https://github.com/a2aproject/A2A" target="_blank" rel="noopener noreferrer">https://github.com/a2aproject/A2A</a>
+      </div>
+    </div>
+    <div id="ref-35" popover>
+      <button class="popover-close" commandfor="ref-35" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [35]</span>
+      <div class="popover-ref-body">
+        Model Context Protocol Contributors. Knowledge Graph Memory Server. GitHub
+        <a href="https://github.com/modelcontextprotocol/servers/tree/main/src/memory" target="_blank" rel="noopener noreferrer">https://github.com/modelcontextprotocol/servers/tree/main/src/memory</a>
+      </div>
+    </div>
+    <div id="ref-36" popover>
+      <button class="popover-close" commandfor="ref-36" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [36]</span>
+      <div class="popover-ref-body">
+        Tech Policy Press. The Right to Be Forgotten Is Dead: Data Lives Forever in AI.
+        <a href="https://techpolicy.press/the-right-to-be-forgotten-is-dead-data-lives-forever-in-ai" target="_blank" rel="noopener noreferrer">https://techpolicy.press/the-right-to-be-forgotten-is-dead-data-lives-forever-in-ai</a>
+      </div>
+    </div>
+    <div id="ref-37" popover>
+      <button class="popover-close" commandfor="ref-37" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [37]</span>
+      <div class="popover-ref-body">
+        European Data Protection Board (2025). AI: Effective Implementation of Data Subjects&#x27; Rights.
+        <a href="https://www.edpb.europa.eu/system/files/2025-01/d2-ai-effective-implementation-of-data-subjects-rights_en.pdf" target="_blank" rel="noopener noreferrer">https://www.edpb.europa.eu/system/files/2025-01/d2-ai-effective-implementation-of-data-subjects-rights_en.pdf</a>
+      </div>
+    </div>
+    <div id="ref-38" popover>
+      <button class="popover-close" commandfor="ref-38" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [38]</span>
+      <div class="popover-ref-body">
+        Wang-Tomic, L., Johnson, G. (2025). New Bulk Data Operations: Update, Delete, and Fetch by Metadata. Pinecone.
+        <a href="https://www.pinecone.io/blog/update-delete-and-fetch-by-metadata/" target="_blank" rel="noopener noreferrer">https://www.pinecone.io/blog/update-delete-and-fetch-by-metadata/</a>
+      </div>
+    </div>
+    <div id="ref-39" popover>
+      <button class="popover-close" commandfor="ref-39" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [39]</span>
+      <div class="popover-ref-body">
+        Chakraborttii, C., Alvarado, J.G., Abdulofizova, S., Dwivedi, S. (2026). Ghost Vectors: Soft-Deleted Embeddings Remain Reconstructible in HNSW Vector Databases. arXiv:2606.18497.
+        <a href="https://arxiv.org/abs/2606.18497" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2606.18497</a>
+      </div>
+    </div>
+    <div id="ref-40" popover>
+      <button class="popover-close" commandfor="ref-40" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [40]</span>
+      <div class="popover-ref-body">
+        Dong, Y., et al. (2025). Memory Injection Attacks on LLM Agents via Query-Only Interaction. arXiv:2503.03704.
+        <a href="https://arxiv.org/abs/2503.03704" target="_blank" rel="noopener noreferrer">https://arxiv.org/abs/2503.03704</a>
+      </div>
+    </div>
+    <div id="ref-41" popover>
+      <button class="popover-close" commandfor="ref-41" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [41]</span>
+      <div class="popover-ref-body">
+        Invariant Labs. MCP Security Notification: Tool Poisoning Attacks.
+        <a href="https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks" target="_blank" rel="noopener noreferrer">https://invariantlabs.ai/blog/mcp-security-notification-tool-poisoning-attacks</a>
+      </div>
+    </div>
+    <div id="ref-42" popover>
+      <button class="popover-close" commandfor="ref-42" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [42]</span>
+      <div class="popover-ref-body">
+        Narang, S. (2025). FAQ: CVE-2025-54135 and CVE-2025-54136 Vulnerabilities in Cursor (CurXecute and MCPoison). Tenable.
+        <a href="https://www.tenable.com/blog/faq-cve-2025-54135-cve-2025-54136-vulnerabilities-in-cursor-curxecute-mcpoison" target="_blank" rel="noopener noreferrer">https://www.tenable.com/blog/faq-cve-2025-54135-cve-2025-54136-vulnerabilities-in-cursor-curxecute-mcpoison</a>
+      </div>
+    </div>
+    <div id="ref-43" popover>
+      <button class="popover-close" commandfor="ref-43" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [43]</span>
+      <div class="popover-ref-body">
+        JFrog (2025). MCP Prompt Hijacking Vulnerability.
+        <a href="https://jfrog.com/blog/mcp-prompt-hijacking-vulnerability/" target="_blank" rel="noopener noreferrer">https://jfrog.com/blog/mcp-prompt-hijacking-vulnerability/</a>
+      </div>
+    </div>
+    <div id="ref-44" popover>
+      <button class="popover-close" commandfor="ref-44" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [44]</span>
+      <div class="popover-ref-body">
+        OWASP. MCP Tool Poisoning.
+        <a href="https://owasp.org/www-community/attacks/MCP_Tool_Poisoning" target="_blank" rel="noopener noreferrer">https://owasp.org/www-community/attacks/MCP_Tool_Poisoning</a>
+      </div>
+    </div>
+    <div id="ref-45" popover>
+      <button class="popover-close" commandfor="ref-45" command="hide-popover">&times;</button>
+      <span class="popover-ref-title">Reference [45]</span>
+      <div class="popover-ref-body">
+        Google Cloud Blog. Agent2Agent Protocol Is Getting an Upgrade.
+        <a href="https://cloud.google.com/blog/products/ai-machine-learning/agent2agent-protocol-is-getting-an-upgrade" target="_blank" rel="noopener noreferrer">https://cloud.google.com/blog/products/ai-machine-learning/agent2agent-protocol-is-getting-an-upgrade</a>
+      </div>
+    </div>
+
+  </body>
+</html>

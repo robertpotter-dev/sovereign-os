@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security Compliance -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net;"
+    />
+    
+    <!-- Primary discovery metadata -->
+    <meta name="view-transition" content="same-origin" />
+    <title>Context Inversion Protocol | Sovereign OS Project</title>
+    <meta name="description" content="The Sovereign OS Project publishes the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype." />
+    <meta name="author" content="Robert E. Potter" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+    <link rel="icon" type="image/png" href="./img/favicon.png" />
+    <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
+    
+    <!-- Social Preview (Open Graph & Twitter) -->
+    <meta property="og:title" content="Context Inversion Protocol | Sovereign OS Project" />
+    <meta property="og:site_name" content="Sovereign OS Project" />
+    <meta property="og:description" content="The Sovereign OS Project publishes the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sovereignos.foundation/" />
+    <meta property="og:image" content="https://sovereignos.foundation/img/social-preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Sovereign OS Project — Context Inversion Protocol schematic"
+    />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Context Inversion Protocol | Sovereign OS Project" />
+    <meta name="twitter:description" content="The Sovereign OS Project publishes the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype." />
+    <meta name="twitter:image" content="https://sovereignos.foundation/img/social-preview.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Sovereign OS Project — Context Inversion Protocol schematic"
+    />
+    
+    <link rel="canonical" href="https://sovereignos.foundation/" />
+    <link rel="describedby" type="text/markdown" href="https://sovereignos.foundation/llms.txt" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="./fonts/fonts.css" as="style" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://robertpotter.me/#person",
+            "name": "Robert E. Potter",
+            "url": "https://robertpotter.me/",
+            "sameAs": "https://orcid.org/0009-0003-7903-558X"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sovereignos.foundation/#website",
+            "name": "Sovereign OS Project",
+            "alternateName": "Sovereign OS",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "creator": { "@id": "https://robertpotter.me/#person" },
+            "publisher": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "ResearchProject",
+            "@id": "https://sovereignos.foundation/#initiative",
+            "name": "Sovereign OS Project",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "disambiguatingDescription": "An independent personal-context research initiative founded by Robert Potter; unaffiliated with similarly named enterprise and national AI infrastructure products.",
+            "founder": { "@id": "https://robertpotter.me/#person" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#context-inversion-protocol",
+            "name": "Context Inversion Protocol",
+            "alternateName": "CIP",
+            "url": "https://sovereignos.foundation/concept/",
+            "creativeWorkStatus": "Proposed",
+            "description": "A proposed edge-first implementation profile that would keep the user's local machine authoritative over persistent human context while treating external models and agents as replaceable utilities. Not shipped.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#sovereign-os",
+            "name": "Sovereign OS",
+            "alternateName": "Sovereign OS Control Plane",
+            "url": "https://github.com/robertpotter-dev/sos-control-plane",
+            "creativeWorkStatus": "Published prototype — custody plane; CIP runtime not shipped",
+            "license": "https://opensource.org/license/mit",
+            "description": "Published MIT-licensed local control plane (version 1.6.0) for source custody, deterministic evidence, and operator-accepted knowledge. Not a completed Context Inversion Protocol or HCP-MCP stack.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" },
+            "about": { "@id": "https://sovereignos.foundation/#context-inversion-protocol" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sovereignos.foundation/#page",
+            "url": "https://sovereignos.foundation/",
+            "name": "Context Inversion Protocol | Sovereign OS Project",
+            "description": "The Sovereign OS Project publishes the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "dateModified": "2026-08-28",
+            "isPartOf": { "@id": "https://sovereignos.foundation/#website" },
+            "about": [
+              { "@id": "https://sovereignos.foundation/#context-inversion-protocol" },
+              { "@id": "https://sovereignos.foundation/#sovereign-os" }
+            ]
+          }    ]
+      }
+    </script>
+    
+    <!-- Popover Polyfill for older browsers -->
+    
+    <script type="module" crossorigin src="./assets/main-CImZLiWv.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/main-yi8v5-jb.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-BGzXLoBc.css">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- Main Content -->
+      <div class="main-content" itemprop="articleBody">
+        <header class="title-block">
+          <div class="publication-title">
+            The Context Inversion Protocol: An Edge-First Profile for Persistent Human Context, with a Local
+            Custody and Provenance Prototype
+          </div>
+          <div class="author"><a href="https://robertpotter.me/" rel="author">Robert E. Potter</a></div>
+          <div class="date">
+            Sovereign OS Project &mdash; Independent Research Initiative<br />
+            Version 0.2.0 &middot; August 2026<br />
+            <a href="/sovereign-os-whitepaper.pdf" target="_blank" rel="noopener noreferrer">[Download PDF]</a>
+            <a href="/whitepaper-raw.md" target="_blank" rel="noopener noreferrer">[Markdown]</a>
+            <a href="/CITATION.bib" target="_blank" rel="noopener noreferrer">[BibTeX]</a>
+            <a href="https://doi.org/10.5281/zenodo.22313971" aria-label="DOI: 10.5281/zenodo.22313971">[DOI]</a>
+          </div>
+        </header>
+
+        <div class="two-column-layout">
+          <!-- Global Navigation -->
+          <nav class="toc-container">
+            <div class="toc-sticky">
+              <h3 class="toc-title">Contents</h3>
+              <ul class="toc-list">
+                <li>
+                  <a href="/" class="current-page">1. Prologue</a>
+                </li>
+                <li>
+                  <a href="/concept/" class="">2. Concept</a>
+                </li>
+                <li>
+                  <a href="/faq/" class="">3. FAQ</a>
+                </li>
+                <li>
+                  <a href="/whitepaper/" class=""
+                    >4. Whitepaper (The Protocol)</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="article-body">
+            <h1 class="reader-view-title">
+              The Context Inversion Protocol: An Edge-First Profile for Persistent Human Context,
+              with a Local Custody and Provenance Prototype
+            </h1>
+            <section class="paper-intro" id="manifesto-summary">
+              <h2 class="abstract-title">Prologue</h2>
+              <p>
+                <strong
+                  >The Sovereign OS Project is an independent research initiative founded by Robert
+                  Potter.</strong
+                >
+                It publishes the Context Inversion Protocol, a proposed edge-first profile for
+                persistent human context, and Sovereign OS Control Plane 1.6.0, a public
+                MIT-licensed local custody and provenance prototype. The control plane is not the
+                protocol. CIP would sit in front of that plane; it is not yet shipped.
+              </p>
+              <p>
+                In 1980, the personal computer was famously categorized as a "bicycle for the mind."
+                This was not merely a comment on computational efficiency; it was a profound
+                declaration of digital sovereignty. Prior to the PC revolution, a "computer" was a
+                room-sized leviathan locked within an institution. The user was a supplicant,
+                begging for fractional timeshares via dumb terminals. The personal computer
+                decentralized that power, placing the engine directly on the desk of the individual.
+              </p>
+              <p>
+                Over the last decade, we have quietly orchestrated a systemic regression. As data
+                evolved into "Big Data" and deterministic logic was eclipsed by centralized frontier
+                artificial intelligence, the architectural gravity shifted entirely back to the
+                mainframe. We increasingly relegate the most advanced edge processors ever built to
+                the role of thin clients, routing our most intimate relational logic back to
+                multi-tenant corporate server farms. We have rebuilt the 1970s topology, packaged it
+                in milled aluminum, and willingly surrendered the bicycle to the cloud.
+              </p>
+              <p>
+                <strong>The project proposes a second liberation of personal computing.</strong>
+                The target architecture would demote the cloud from central authority to a
+                replaceable utility. The local edge machine would not be a terminal connecting to a
+                corporate brain, but the authoritative store for an individual's digital life.
+                Sovereign OS Control Plane 1.6.0 is published as that store: captured sources,
+                deterministic evidence, and operator-accepted knowledge, kept as ordinary local
+                files.
+              </p>
+              <p>
+                The Context Inversion Protocol remains the proposed gate in front of that store.
+                Models and agents would be routed to narrowly authorized context at the edge rather
+                than extracting the store to the cloud. Until that gate exists, the published plane
+                is custody and provenance, not a completed CIP runtime and not an HCP-MCP stack.
+              </p>
+              <p style="text-align: center; margin-top: 4em">
+                <a href="/concept/"><strong>Proceed to the Concept &rarr;</strong></a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

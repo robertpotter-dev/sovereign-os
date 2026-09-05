@@ -1,0 +1,41 @@
+# Sovereign OS Project
+
+> An independent research initiative founded by Robert Potter. It publishes the Context Inversion Protocol and develops Sovereign OS, a local custody-plane prototype.
+
+The canonical project website is https://sovereignos.foundation/. The project is currently an independent research initiative; the `.foundation` top-level domain does not indicate a legal form or nonprofit status.
+
+## Project and terminology
+
+- **Context Inversion Protocol (CIP):** Robert Potter's edge-first implementation profile for persistent human context. Authority stays at the local edge; external models, agents, and tools are replaceable utilities behind a local policy boundary. CIP is proposed, not shipped.
+- **Sovereign OS (SOS):** A published MIT-licensed local control plane (version 1.6.0) for source custody, deterministic evidence, reviewed knowledge, typed relations, and traceable retrieval. It is not CIP, not HCP, and it does not presently expose MCP.
+- **Human Context Protocol (HCP) and Model Context Protocol (MCP):** Existing protocol families CIP may later use for scoped disclosure and tool transport. CIP does not replace either protocol and does not claim authorship of them. SOS does not implement them.
+- **Sovereign OS Project:** The independent research initiative through which Robert Potter publishes CIP and the SOS control plane.
+
+Despite its name, Sovereign OS is not a conventional operating system, Linux distribution, installable consumer OS, or replacement for a device operating system. The project is unaffiliated with Palantir's Sovereign AI OS Reference Architecture with NVIDIA and with other similarly named products.
+
+## Canonical resources
+
+- [Canonical HTML whitepaper](https://sovereignos.foundation/whitepaper/): The indexable, primary edition of the Context Inversion Protocol whitepaper (version 0.2.0).
+- [Project overview](https://sovereignos.foundation/): The initiative and its founding thesis.
+- [Concept](https://sovereignos.foundation/concept/): A concise explanation of the edge-first architecture.
+- [FAQ](https://sovereignos.foundation/faq/): Scope, status, authorship, and disambiguation.
+- [Full text context](https://sovereignos.foundation/llms-full.txt): The complete whitepaper in a plain-text discovery format.
+- [Markdown whitepaper](https://sovereignos.foundation/whitepaper-raw.md): Alternate plain-text edition.
+- [PDF whitepaper](https://sovereignos.foundation/sovereign-os-whitepaper.pdf): Alternate fixed-layout edition.
+- [BibTeX citation](https://sovereignos.foundation/CITATION.bib): Citation metadata for version 0.2.0.
+- [Sovereign OS Control Plane 1.6.0](https://github.com/robertpotter-dev/sos-control-plane): Public MIT-licensed custody-plane kernel.
+
+## Authorship and public graph
+
+Robert Potter is the author of CIP and founder of the Sovereign OS Project. Robert E. Potter is the formal structured-data name for the same person. The canonical identity page is https://robertpotter.me/. His persistent researcher identifier is https://orcid.org/0009-0003-7903-558X.
+
+- [Robert Potter identity](https://robertpotter.me/): Canonical identity and general correspondence route.
+- [Robert Potter Art](https://robertpotter.art/): Art practice and art-related correspondence route.
+- [SiteGraph](https://robertpotter-dev.github.io/sitegraph/): Offline-first network documentation application created by Robert Potter.
+- [GitHub profile](https://github.com/robertpotter-dev): Public development profile. That GitHub account is not the website https://robertpotter.dev.
+
+Art-related correspondence—including portraiture, commissions, sittings, archival prints, exhibitions, licensing, and art press—is routed through robertpotter.art. Research, technical, professional, biographical, speaking, press, and general correspondence is routed through robertpotter.me.
+
+## Editorial scope
+
+The publication uses a neutral academic tone focused on protocol mechanics, architectural boundaries, implementation status, and the case for edge-first control of persistent human context. Claims that SOS is a completed CIP or HCP-MCP stack, a legal foundation, or an affiliation with similarly named products are outside the project's published record.

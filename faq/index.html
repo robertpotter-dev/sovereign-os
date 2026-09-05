@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security Compliance -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net;"
+    />
+    
+    <!-- Primary discovery metadata -->
+    <meta name="view-transition" content="same-origin" />
+    <title>FAQ | Sovereign OS Project</title>
+    <meta name="description" content="Answers about the Sovereign OS Project, Context Inversion Protocol, Control Plane 1.6.0, authorship, scope, and what has and has not been shipped." />
+    <meta name="author" content="Robert E. Potter" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
+    <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
+    
+    <!-- Social Preview (Open Graph & Twitter) -->
+    <meta property="og:title" content="FAQ | Sovereign OS Project" />
+    <meta property="og:site_name" content="Sovereign OS Project" />
+    <meta property="og:description" content="Answers about the Sovereign OS Project, Context Inversion Protocol, Control Plane 1.6.0, authorship, scope, and what has and has not been shipped." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sovereignos.foundation/faq/" />
+    <meta property="og:image" content="https://sovereignos.foundation/img/social-preview.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Sovereign OS Project — Context Inversion Protocol schematic"
+    />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FAQ | Sovereign OS Project" />
+    <meta name="twitter:description" content="Answers about the Sovereign OS Project, Context Inversion Protocol, Control Plane 1.6.0, authorship, scope, and what has and has not been shipped." />
+    <meta name="twitter:image" content="https://sovereignos.foundation/img/social-preview.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Sovereign OS Project — Context Inversion Protocol schematic"
+    />
+    
+    <link rel="canonical" href="https://sovereignos.foundation/faq/" />
+    <link rel="describedby" type="text/markdown" href="https://sovereignos.foundation/llms.txt" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="../fonts/fonts.css" as="style" />
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://robertpotter.me/#person",
+            "name": "Robert E. Potter",
+            "url": "https://robertpotter.me/",
+            "sameAs": "https://orcid.org/0009-0003-7903-558X"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sovereignos.foundation/#website",
+            "name": "Sovereign OS Project",
+            "alternateName": "Sovereign OS",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "creator": { "@id": "https://robertpotter.me/#person" },
+            "publisher": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "ResearchProject",
+            "@id": "https://sovereignos.foundation/#initiative",
+            "name": "Sovereign OS Project",
+            "url": "https://sovereignos.foundation/",
+            "description": "An independent research initiative publishing the Context Inversion Protocol, a proposed edge-first profile, and Sovereign OS Control Plane 1.6.0, a local custody and provenance prototype.",
+            "disambiguatingDescription": "An independent personal-context research initiative founded by Robert Potter; unaffiliated with similarly named enterprise and national AI infrastructure products.",
+            "founder": { "@id": "https://robertpotter.me/#person" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#context-inversion-protocol",
+            "name": "Context Inversion Protocol",
+            "alternateName": "CIP",
+            "url": "https://sovereignos.foundation/concept/",
+            "creativeWorkStatus": "Proposed",
+            "description": "A proposed edge-first implementation profile that would keep the user's local machine authoritative over persistent human context while treating external models and agents as replaceable utilities. Not shipped.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://sovereignos.foundation/#sovereign-os",
+            "name": "Sovereign OS",
+            "alternateName": "Sovereign OS Control Plane",
+            "url": "https://github.com/robertpotter-dev/sos-control-plane",
+            "creativeWorkStatus": "Published prototype — custody plane; CIP runtime not shipped",
+            "license": "https://opensource.org/license/mit",
+            "description": "Published MIT-licensed local control plane (version 1.6.0) for source custody, deterministic evidence, and operator-accepted knowledge. Not a completed Context Inversion Protocol or HCP-MCP stack.",
+            "author": { "@id": "https://robertpotter.me/#person" },
+            "isPartOf": { "@id": "https://sovereignos.foundation/#initiative" },
+            "about": { "@id": "https://sovereignos.foundation/#context-inversion-protocol" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://sovereignos.foundation/faq/#page",
+            "url": "https://sovereignos.foundation/faq/",
+            "name": "FAQ | Sovereign OS Project",
+            "description": "Answers about the Sovereign OS Project, Context Inversion Protocol, Control Plane 1.6.0, authorship, scope, and what has and has not been shipped.",
+            "dateModified": "2026-08-28",
+            "isPartOf": { "@id": "https://sovereignos.foundation/#website" },
+            "about": [
+              { "@id": "https://sovereignos.foundation/#context-inversion-protocol" },
+              { "@id": "https://sovereignos.foundation/#sovereign-os" }
+            ]
+          }    ]
+      }
+    </script>
+    
+    <!-- Popover Polyfill for older browsers -->
+    
+    <script type="module" crossorigin src="../assets/faq-CImZLiWv.js"></script>
+    <link rel="modulepreload" crossorigin href="../assets/main-yi8v5-jb.js">
+    <link rel="stylesheet" crossorigin href="../assets/main-BGzXLoBc.css">
+  </head>
+  <body>
+    <div class="site-wrapper">
+      <!-- Main Content -->
+      <div class="main-content" itemprop="articleBody">
+        <header class="title-block">
+          <div class="publication-title">
+            The Context Inversion Protocol: An Edge-First Profile for Persistent Human Context, with a Local
+            Custody and Provenance Prototype
+          </div>
+          <div class="author"><a href="https://robertpotter.me/" rel="author">Robert E. Potter</a></div>
+          <div class="date">
+            Sovereign OS Project &mdash; Independent Research Initiative<br />
+            Version 0.2.0 &middot; August 2026<br />
+            <a href="/sovereign-os-whitepaper.pdf" target="_blank" rel="noopener noreferrer">[Download PDF]</a>
+            <a href="/whitepaper-raw.md" target="_blank" rel="noopener noreferrer">[Markdown]</a>
+            <a href="/CITATION.bib" target="_blank" rel="noopener noreferrer">[BibTeX]</a>
+            <a href="https://doi.org/10.5281/zenodo.22313971" aria-label="DOI: 10.5281/zenodo.22313971">[DOI]</a>
+          </div>
+        </header>
+
+        <div class="two-column-layout">
+          <!-- Global Navigation -->
+          <nav class="toc-container">
+            <div class="toc-sticky">
+              <h3 class="toc-title">Contents</h3>
+              <ul class="toc-list">
+                <li>
+                  <a href="/" class="">1. Prologue</a>
+                </li>
+                <li>
+                  <a href="/concept/" class="">2. Concept</a>
+                </li>
+                <li>
+                  <a href="/faq/" class="current-page">3. FAQ</a>
+                </li>
+                <li>
+                  <a href="/whitepaper/" class=""
+                    >4. Whitepaper (The Protocol)</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <div class="article-body">
+            <h1 class="reader-view-title">Frequently Asked Questions</h1>
+            <section class="paper-intro" id="faq-summary">
+              <div style="margin-bottom: 2.5em">
+                <h3>
+                  What is the relationship between the project, the protocol, and the
+                  implementation?
+                </h3>
+                <p>
+                  The Sovereign OS Project is an independent research initiative founded by Robert
+                  Potter and published at sovereignos.foundation. The Context Inversion Protocol
+                  (CIP) is Potter's proposed edge-first implementation profile: authority stays at
+                  the local edge, and models are replaceable utilities behind a gate. Sovereign OS
+                  (SOS) is published as Control Plane 1.6.0, an MIT-licensed local custody plane
+                  for sources, evidence, and operator-accepted knowledge. SOS is not CIP. CIP would
+                  sit in front of a plane like SOS; that gate is not shipped. The .foundation domain
+                  does not specify legal form or nonprofit status.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>What has been published?</h3>
+                <p>
+                  Whitepaper 0.2.0 defines CIP as a proposed profile and reports SOS Control Plane
+                  1.6.0 as a public MIT prototype. The control plane implements capture, ingest,
+                  debrief, and retrieve over ordinary local files. It is available at
+                  <a href="https://github.com/robertpotter-dev/sos-control-plane"
+                    >github.com/robertpotter-dev/sos-control-plane</a
+                  >. It is not a completed CIP runtime, not an HCP implementation, and it does not
+                  expose MCP. Independent verification of behavior remains future work.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>Is Sovereign OS a conventional operating system?</h3>
+                <p>
+                  No. Sovereign OS names a local control plane for personal context custody. It is
+                  not a released desktop or mobile operating system, Linux distribution,
+                  installable consumer product, or replacement for Windows, macOS, or Linux. Version
+                  1.6.0 is a command-line custody plane with conversational review, not an
+                  installable OS.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>Is this project related to Palantir or similarly named products?</h3>
+                <p>
+                  No. The Sovereign OS Project published here is unaffiliated with Palantir or other
+                  similarly named products. This project focuses on individual control of persistent
+                  human context through a local custody plane. CIP remains a proposed mediation
+                  layer, not a completed HCP-MCP stack.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>
+                  How does Sovereign OS differ from edge AI initiatives by major hardware vendors?
+                </h3>
+                <p>
+                  Sovereign OS shares the architectural premise that personal context should be
+                  processed on the edge. Hardware-first vendors are economically incentivized to
+                  protect on-device data because their primary revenue is derived from hardware
+                  sales, allowing them to implement edge-centric AI within proprietary ecosystems.
+                  SOS 1.6.0 is published as inspectable, hardware-agnostic open source (MIT) rather
+                  than as a vendor-locked on-device AI stack. It does not presently run local
+                  inference.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>Why not utilize centralized cloud models for personal AI?</h3>
+                <p>
+                  Centralized models require the continuous extraction of high-fidelity personal
+                  context to third-party data centers. Organizations whose valuations depend on data
+                  aggregation and algorithmic advertising are structurally incentivized to maintain
+                  this extraction model. The published SOS plane keeps sources, evidence, and
+                  accepted knowledge as local files rather than a multi-tenant profile. CIP would
+                  add a policy boundary so replaceable models never mount that store; that gate is
+                  not shipped.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>What are the hardware requirements for Sovereign OS?</h3>
+                <p>
+                  The published control plane is a local Node.js command-line interface and
+                  conversational review workflow. It does not require on-device foundation models. A
+                  later CIP mediation layer that routes live model calls at the edge may need more
+                  capable local hardware, depending on workload; that is not a requirement of
+                  version 1.6.0.
+                </p>
+              </div>
+
+              <div style="margin-bottom: 2.5em">
+                <h3>How does Sovereign OS relate to HCP and MCP?</h3>
+                <p>
+                  The Human Context Protocol (HCP) is a research program for user-controlled
+                  context sharing. The Model Context Protocol (MCP) is a tool-transport protocol.
+                  CIP is proposed as an implementation profile that would later use those families
+                  for scoped disclosure and gateway transport. SOS 1.6.0 does not implement HCP or
+                  MCP. HCP is not required for the custody plane to exist; it is the vocabulary the
+                  paper uses when the remaining problem is scoped sharing with AI systems.
+                </p>
+              </div>
+
+              <p style="text-align: center; margin-top: 4em">
+                <a href="/whitepaper/"><strong>Proceed to the Whitepaper &rarr;</strong></a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the relationship between the project, the protocol, and the implementation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Sovereign OS Project is an independent research initiative founded by Robert Potter and published at sovereignos.foundation. The Context Inversion Protocol (CIP) is Potter's proposed edge-first implementation profile: authority stays at the local edge, and models are replaceable utilities behind a gate. Sovereign OS (SOS) is published as Control Plane 1.6.0, an MIT-licensed local custody plane for sources, evidence, and operator-accepted knowledge. SOS is not CIP. CIP would sit in front of a plane like SOS; that gate is not shipped. The .foundation domain does not specify legal form or nonprofit status."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What has been published?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Whitepaper 0.2.0 defines CIP as a proposed profile and reports SOS Control Plane 1.6.0 as a public MIT prototype. The control plane implements capture, ingest, debrief, and retrieve over ordinary local files. It is available at github.com/robertpotter-dev/sos-control-plane. It is not a completed CIP runtime, not an HCP implementation, and it does not expose MCP. Independent verification of behavior remains future work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Sovereign OS a conventional operating system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Sovereign OS names a local control plane for personal context custody. It is not a released desktop or mobile operating system, Linux distribution, installable consumer product, or replacement for Windows, macOS, or Linux. Version 1.6.0 is a command-line custody plane with conversational review, not an installable OS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this project related to Palantir or similarly named products?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The Sovereign OS Project published here is unaffiliated with Palantir or other similarly named products. This project focuses on individual control of persistent human context through a local custody plane. CIP remains a proposed mediation layer, not a completed HCP-MCP stack."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Sovereign OS differ from edge AI initiatives by major hardware vendors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sovereign OS shares the architectural premise that personal context should be processed on the edge. Hardware-first vendors are economically incentivized to protect on-device data because their primary revenue is derived from hardware sales, allowing them to implement edge-centric AI within proprietary ecosystems. SOS 1.6.0 is published as inspectable, hardware-agnostic open source (MIT) rather than as a vendor-locked on-device AI stack. It does not presently run local inference."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why not utilize centralized cloud models for personal AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Centralized models require the continuous extraction of high-fidelity personal context to third-party data centers. Organizations whose valuations depend on data aggregation and algorithmic advertising are structurally incentivized to maintain this extraction model. The published SOS plane keeps sources, evidence, and accepted knowledge as local files rather than a multi-tenant profile. CIP would add a policy boundary so replaceable models never mount that store; that gate is not shipped."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the hardware requirements for Sovereign OS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The published control plane is a local Node.js command-line interface and conversational review workflow. It does not require on-device foundation models. A later CIP mediation layer that routes live model calls at the edge may need more capable local hardware, depending on workload; that is not a requirement of version 1.6.0."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Sovereign OS relate to HCP and MCP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Human Context Protocol (HCP) is a research program for user-controlled context sharing. The Model Context Protocol (MCP) is a tool-transport protocol. CIP is proposed as an implementation profile that would later use those families for scoped disclosure and gateway transport. SOS 1.6.0 does not implement HCP or MCP. HCP is not required for the custody plane to exist; it is the vocabulary the paper uses when the remaining problem is scoped sharing with AI systems."
+          }
+        }
+      ]
+    }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,1 @@
+import{t as e}from"./main-yi8v5-jb.js";`popover`in HTMLElement.prototype||e(()=>import(`https://unpkg.com/@oddbird/popover-polyfill@latest/dist/popover.min.js`),[],import.meta.url);
